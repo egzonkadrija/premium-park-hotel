@@ -7,6 +7,7 @@
   --hero-dark: #130f0c;
   --gold: #c9a77a;
   --title-gold: #d6af2f;
+  --section-space: 4rem;
 }
 
 #root {
@@ -20,11 +21,11 @@
 
 .hero {
   position: relative;
-  min-height: 460px;
+  min-height: 720px;
   padding: 0 0 4rem;
   background:
     linear-gradient(100deg, rgba(12, 8, 5, 0.68), rgba(24, 13, 7, 0.52)),
-    url('/images/scraped/hero.jpg');
+    url('/images/scraped/hero-candidate-1.jpg');
   background-size: cover;
   background-position: center;
   overflow: visible;
@@ -202,7 +203,7 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1120px;
+  max-width: 920px;
   margin: 6.4rem auto 0;
   padding: 0 1.2rem;
 }
@@ -243,7 +244,7 @@ h1 {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
-  padding: 3rem 1.2rem 0;
+  padding: var(--section-space) 1.2rem 0;
 }
 
 .section-head h2 {
@@ -256,9 +257,15 @@ h1 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+.about-copy {
+  padding: 0 0 0 1.2rem;
 }
 
 .about-copy h2 {
@@ -279,7 +286,16 @@ h1 {
   min-height: 280px;
   background-size: cover;
   background-position: center;
-  border-radius: 2px;
+  border-radius: 0;
+}
+
+.about-grid > .about-media:nth-child(1) {
+  margin-right: 0;
+}
+
+.about-grid > .about-media:nth-child(2) {
+  margin-left: 0;
+  margin-top: 280px;
 }
 
 .btn-dark {
@@ -288,7 +304,7 @@ h1 {
 }
 
 .services {
-  padding-top: 2.8rem;
+  padding-top: var(--section-space);
 }
 
 .services-slider-viewport {
@@ -337,7 +353,8 @@ h1 {
 
 .restaurant-slider-wrap {
   max-width: 920px;
-  margin: 5rem auto 0;
+  margin: 4rem auto 0;
+  margin-bottom: 4rem;
   padding-top: 1.1rem;
   border-top: 1px solid #e4d9b2;
 }
@@ -368,10 +385,27 @@ h1 {
   flex: 0 0 100%;
 }
 
+.restaurant-card {
+  margin: 0;
+  max-width: none;
+  background: #fff;
+}
+
 .restaurant-slide-image {
   height: 430px;
   background-size: cover;
   background-position: center;
+}
+
+.restaurant-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 0;
+  font-weight: 700;
+  color: var(--title-gold);
+  padding: 1rem 1.2rem 1.2rem;
+  background: #fff;
+  text-align: center;
 }
 
 .gallery-grid {
@@ -394,7 +428,7 @@ h1 {
 }
 
 .testimonials {
-  padding-bottom: 2.8rem;
+  padding-bottom: var(--section-space);
 }
 
 .testimonial-grid {
@@ -555,7 +589,7 @@ h1 {
 
 @media (max-width: 700px) {
   .hero {
-    min-height: 420px;
+    min-height: 560px;
   }
 
   .topbar {
@@ -586,6 +620,11 @@ h1 {
 
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-grid > .about-media:nth-child(1),
+  .about-grid > .about-media:nth-child(2) {
+    margin: 0;
   }
 
   .about-media {

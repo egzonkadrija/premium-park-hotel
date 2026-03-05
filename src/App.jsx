@@ -33,10 +33,10 @@ const galleryItems = [
 const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 const roomItems = amenities.map((item) => ({ title: item.title, id: slugify(item.title) }))
 const restaurantSlides = [
-  '/images/scraped/restaurant-slider-1.jpg',
-  '/images/scraped/restaurant-slider-2.jpg',
-  '/images/scraped/restaurant-slider-3.jpg',
-  '/images/scraped/restaurant-slider-4.jpg',
+  { title: 'Restaurant Ambient 1', image: '/images/scraped/restaurant-slider-1.jpg' },
+  { title: 'Restaurant Ambient 2', image: '/images/scraped/restaurant-slider-2.jpg' },
+  { title: 'Restaurant Ambient 3', image: '/images/scraped/restaurant-slider-3.jpg' },
+  { title: 'Restaurant Ambient 4', image: '/images/scraped/restaurant-slider-4.jpg' },
 ]
 
 const testimonials = [
@@ -186,6 +186,10 @@ function AboutSection() {
           className="about-media"
           style={{ backgroundImage: "url('/images/scraped/about-left.jpg')" }}
         />
+        <div
+          className="about-media"
+          style={{ backgroundImage: "url('/images/scraped/about-right.jpg')" }}
+        />
         <div className="about-copy">
           <h2>Elegance ne Prizren</h2>
           <p>
@@ -198,10 +202,6 @@ function AboutSection() {
             Shihni sherbimet
           </Link>
         </div>
-        <div
-          className="about-media"
-          style={{ backgroundImage: "url('/images/scraped/about-right.jpg')" }}
-        />
       </div>
     </section>
   )
@@ -287,9 +287,12 @@ function ServicesSection() {
             style={{ transform: `translateX(-${restaurantIndex * 100}%)` }}
             aria-live="polite"
           >
-            {restaurantSlides.map((imagePath) => (
-              <div className="restaurant-slide" key={imagePath}>
-                <div className="restaurant-slide-image" style={{ backgroundImage: `url('${imagePath}')` }} />
+            {restaurantSlides.map((item) => (
+              <div className="restaurant-slide" key={item.image}>
+                <div className="restaurant-card">
+                  <div className="restaurant-slide-image" style={{ backgroundImage: `url('${item.image}')` }} />
+                  <h3>{item.title}</h3>
+                </div>
               </div>
             ))}
           </div>
