@@ -25,7 +25,7 @@
   padding: 0 0 4rem;
   background:
     linear-gradient(100deg, rgba(12, 8, 5, 0.68), rgba(24, 13, 7, 0.52)),
-    url('/images/scraped/hero-candidate-1.jpg');
+    url('/images/scraped/restaurant-bar-3.jpg');
   background-size: cover;
   background-position: center;
   overflow: visible;
@@ -68,23 +68,29 @@
 
 .menu {
   display: flex;
-  gap: 1.55rem;
+  gap: 1.95rem;
   justify-content: center;
   align-items: center;
 }
 
 .menu-item {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 42px;
 }
 
 .menu-btn {
   color: #666;
   text-decoration: none;
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.92rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 0.2rem 0.05rem 0.28rem;
+  line-height: 1;
+  padding: 0.25rem 0.08rem;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
@@ -97,6 +103,28 @@
 .menu-btn.active {
   color: #1f1f1f;
   border-color: #1f1f1f;
+}
+
+.submenu-toggle {
+  border: 0;
+  background: transparent;
+  color: #666;
+  font-size: 0.82rem;
+  line-height: 1;
+  padding: 0.16rem 0 0.16rem 0.3rem;
+  cursor: pointer;
+}
+
+.submenu-toggle:hover {
+  color: #1f1f1f;
+}
+
+.submenu-toggle:focus-visible,
+.menu-btn:focus-visible,
+.submenu-link:focus-visible,
+.rooms-submenu-link:focus-visible {
+  outline: 2px solid #1f1f1f;
+  outline-offset: 2px;
 }
 
 .submenu {
@@ -128,6 +156,10 @@
   display: grid;
 }
 
+.has-submenu.open .submenu {
+  display: grid;
+}
+
 .submenu-link {
   display: block;
   width: 100%;
@@ -151,6 +183,10 @@
   display: flex;
 }
 
+.has-submenu.open .rooms-submenu {
+  display: flex;
+}
+
 .rooms-submenu {
   width: 270px;
   display: none;
@@ -164,7 +200,7 @@
 .rooms-submenu-link {
   color: #2c2c2c;
   text-decoration: none;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.35;
@@ -257,11 +293,28 @@ h1 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
-  max-width: 920px;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  max-width: 1180px;
   margin: 0 auto;
   gap: 0;
   align-items: start;
+}
+
+.about.about-full {
+  max-width: 1760px;
+}
+
+.about.about-full .about-grid {
+  max-width: none;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.2fr;
+  margin-left: -36px;
+  margin-right: auto;
+}
+
+.about.about-full .about-copy {
+  grid-column: 6;
+  grid-row: auto;
+  align-self: center;
 }
 
 .about-copy {
@@ -289,13 +342,39 @@ h1 {
   border-radius: 0;
 }
 
+.about.about-full .about-media {
+  min-height: 360px;
+}
+
 .about-grid > .about-media:nth-child(1) {
   margin-right: 0;
+  margin-top: 280px;
 }
 
 .about-grid > .about-media:nth-child(2) {
   margin-left: 0;
+  margin-top: 0;
+}
+
+.about-grid > .about-media:nth-child(3) {
+  margin-left: 0;
   margin-top: 280px;
+}
+
+.about.about-full .about-grid > .about-media:nth-child(1) {
+  margin-top: 360px;
+}
+
+.about.about-full .about-grid > .about-media:nth-child(3) {
+  margin-top: 360px;
+}
+
+.about.about-full .about-grid > .about-media:nth-child(4) {
+  margin-top: 0;
+}
+
+.about.about-full .about-grid > .about-media:nth-child(5) {
+  margin-top: 360px;
 }
 
 .btn-dark {
@@ -408,6 +487,37 @@ h1 {
   text-align: center;
 }
 
+.rooms-detail {
+  padding-bottom: var(--section-space);
+}
+
+.room-detail-card {
+  max-width: 920px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #e9e0c4;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.room-detail-image {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+}
+
+.room-detail-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 0;
+  font-weight: 700;
+  color: var(--title-gold);
+  padding: 1rem 1.2rem 1.2rem;
+  background: #fff;
+  text-align: center;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -458,37 +568,55 @@ h1 {
   font-size: 1rem;
 }
 
-.cta-band {
-  position: relative;
-  min-height: 320px;
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(140deg, rgba(26, 20, 16, 0.56), rgba(14, 12, 10, 0.7)),
-    url('/images/scraped/cta.jpg');
-  background-size: cover;
-  background-position: center;
+.location-section {
+  padding-bottom: var(--section-space);
 }
 
-.cta-overlay {
+.location-map-card {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+}
+
+.location-map-frame-wrap {
+  position: relative;
+  min-height: 360px;
+}
+
+.location-map-frame {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.6));
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
 }
 
-.cta-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
+.location-map-hitbox {
+  position: absolute;
+  inset: 0;
 }
 
-.cta-content h2 {
-  margin: 0;
+.location-map-copy {
+  padding: 1.3rem 1.2rem;
+}
+
+.location-map-copy h3 {
+  margin: 0 0 0.65rem;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--title-gold);
+}
+
+.location-map-copy p {
+  margin: 0 0 1.1rem;
+  color: #3f3f3f;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .footer {
@@ -604,10 +732,18 @@ h1 {
     flex-wrap: wrap;
   }
 
+  .menu-item {
+    height: auto;
+  }
+
   .submenu {
     left: 0;
     transform: none;
     width: min(92vw, 360px);
+  }
+
+  .rooms-submenu {
+    width: min(92vw, 270px);
   }
 
   .top-logo {
@@ -615,7 +751,7 @@ h1 {
   }
 
   .menu-btn {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .about-grid {
@@ -623,12 +759,24 @@ h1 {
   }
 
   .about-grid > .about-media:nth-child(1),
-  .about-grid > .about-media:nth-child(2) {
+  .about-grid > .about-media:nth-child(2),
+  .about-grid > .about-media:nth-child(3),
+  .about-grid > .about-media:nth-child(4),
+  .about-grid > .about-media:nth-child(5) {
     margin: 0;
   }
 
   .about-media {
     min-height: 220px;
+  }
+
+  .about.about-full .about-media {
+    min-height: 280px;
+  }
+
+  .about.about-full .about-grid > .about-media:nth-child(1),
+  .about.about-full .about-grid > .about-media:nth-child(3) {
+    margin-top: 0;
   }
 
   .about-copy p {
@@ -647,6 +795,10 @@ h1 {
     height: 250px;
   }
 
+  .room-detail-image {
+    height: 270px;
+  }
+
   .service-card h3 {
     font-size: 1.3rem;
   }
@@ -662,5 +814,13 @@ h1 {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .location-map-card {
+    grid-template-columns: 1fr;
+  }
+
+  .location-map-frame-wrap {
+    min-height: 280px;
   }
 }

@@ -1,28 +1,28 @@
-import { useEffect, useState } from 'react'
-import { BrowserRouter, Link, Navigate, NavLink, Route, Routes } from 'react-router-dom'
+﻿import { useEffect, useRef, useState } from 'react'
+import { BrowserRouter, Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 
 const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'My Profile', to: '/about' },
-  { label: 'Rooms', to: '/services' },
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'Restaurant', to: '/testimonials' },
-  { label: 'Map & Recommendation', to: '/location' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Kreu', to: '/' },
+  { label: 'Rreth Nesh', to: '/about' },
+  { label: 'Dhomat', to: '/services' },
+  { label: 'Galeria', to: '/gallery' },
+  { label: 'Restoranti', to: '/testimonials' },
+  { label: 'Lokacioni', to: '/location' },
+  { label: 'Kontakti', to: '/contact' },
 ]
 
 const amenities = [
-  { title: 'Twin Room', image: '/images/scraped/room-1.jpg' },
-  { title: 'Large Twin Room', image: '/images/scraped/room-2.jpg' },
-  { title: 'Deluxe Double Room', image: '/images/scraped/room-3.jpg' },
-  { title: 'Classic Triple Room', image: '/images/scraped/room-4.jpg' },
-  { title: 'Deluxe Triple Room', image: '/images/scraped/room-5.jpg' },
-  { title: 'One-Bedroom Apartment', image: '/images/scraped/room-6.jpg' },
+  { title: 'Dhome Dyshe', image: '/images/scraped/room-1.jpg' },
+  { title: 'Dhome Dyshe e Madhe', image: '/images/scraped/room-2.jpg' },
+  { title: 'Dhome Dopio Deluxe', image: '/images/scraped/room-3.jpg' },
+  { title: 'Dhome Treshe Klasike', image: '/images/scraped/room-4.jpg' },
+  { title: 'Dhome Treshe Deluxe', image: '/images/scraped/room-5.jpg' },
+  { title: 'Apartament me Nje Dhome Gjumi', image: '/images/scraped/room-6.jpg' },
 ]
 
 const galleryItems = [
-  { title: 'Lounge Ekskluziv', image: '/images/scraped/gallery-1.jpg' },
+  { title: 'Lounge Ekskluziv', image: '/images/scraped/restaurant-bar-3.jpg' },
   { title: 'Interier Bashkekohor', image: '/images/scraped/gallery-2.jpg' },
   { title: 'Kend Relaksi', image: '/images/scraped/gallery-3.jpg' },
   { title: 'Oaz Ujor', image: '/images/scraped/gallery-4.jpg' },
@@ -33,10 +33,10 @@ const galleryItems = [
 const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 const roomItems = amenities.map((item) => ({ title: item.title, id: slugify(item.title) }))
 const restaurantSlides = [
-  { title: 'Restaurant Ambient 1', image: '/images/scraped/restaurant-slider-1.jpg' },
-  { title: 'Restaurant Ambient 2', image: '/images/scraped/restaurant-slider-2.jpg' },
-  { title: 'Restaurant Ambient 3', image: '/images/scraped/restaurant-slider-3.jpg' },
-  { title: 'Restaurant Ambient 4', image: '/images/scraped/restaurant-slider-4.jpg' },
+  { title: 'Ambient Restoranti 1', image: '/images/scraped/restaurant-slider-1.jpg' },
+  { title: 'Ambient Restoranti 2', image: '/images/scraped/restaurant-slider-2.jpg' },
+  { title: 'Ambient Restoranti 3', image: '/images/scraped/restaurant-slider-3.jpg' },
+  { title: 'Ambient Restoranti 4', image: '/images/scraped/restaurant-slider-4.jpg' },
 ]
 
 const testimonials = [
@@ -55,8 +55,27 @@ const testimonials = [
 ]
 
 function TopNav() {
+  const location = useLocation()
+  const [openSubmenu, setOpenSubmenu] = useState(null)
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    setOpenSubmenu(null)
+  }, [location.pathname, location.hash])
+
+  useEffect(() => {
+    const onPointerDown = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenSubmenu(null)
+      }
+    }
+
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => document.removeEventListener('pointerdown', onPointerDown)
+  }, [])
+
   return (
-    <nav className="topbar">
+    <nav className="topbar" ref={navRef}>
       <Link to="/" className="brand" aria-label="Premium Park Hotel home">
         <img src="/images/scraped/source-logo.png" alt="Premium Park Hotel" className="top-logo" />
       </Link>
@@ -64,7 +83,10 @@ function TopNav() {
         {navItems.map((item) => {
           if (item.to === '/services') {
             return (
-              <div className="menu-item has-submenu" key={item.to}>
+              <div
+                className={`menu-item has-submenu${openSubmenu === 'services' ? ' open' : ''}`}
+                key={item.to}
+              >
                 <NavLink
                   to={item.to}
                   className={({ isActive }) => `menu-btn${isActive ? ' active' : ''}`}
@@ -72,7 +94,18 @@ function TopNav() {
                 >
                   {item.label}
                 </NavLink>
-                <div className="submenu rooms-submenu">
+                <button
+                  type="button"
+                  className="submenu-toggle"
+                  aria-label="Hap nennavigimin e dhomave"
+                  aria-haspopup="true"
+                  aria-expanded={openSubmenu === 'services'}
+                  aria-controls="rooms-submenu"
+                  onClick={() => setOpenSubmenu(openSubmenu === 'services' ? null : 'services')}
+                >
+                  â–¾
+                </button>
+                <div className="submenu rooms-submenu" id="rooms-submenu">
                   {roomItems.map((room) => (
                     <Link
                       key={room.id}
@@ -89,7 +122,10 @@ function TopNav() {
 
           if (item.to === '/gallery') {
             return (
-              <div className="menu-item has-submenu" key={item.to}>
+              <div
+                className={`menu-item has-submenu${openSubmenu === 'gallery' ? ' open' : ''}`}
+                key={item.to}
+              >
                 <NavLink
                   to={item.to}
                   className={({ isActive }) => `menu-btn${isActive ? ' active' : ''}`}
@@ -97,7 +133,18 @@ function TopNav() {
                 >
                   {item.label}
                 </NavLink>
-                <div className="submenu">
+                <button
+                  type="button"
+                  className="submenu-toggle"
+                  aria-label="Hap nennavigimin e galerise"
+                  aria-haspopup="true"
+                  aria-expanded={openSubmenu === 'gallery'}
+                  aria-controls="gallery-submenu"
+                  onClick={() => setOpenSubmenu(openSubmenu === 'gallery' ? null : 'gallery')}
+                >
+                  â–¾
+                </button>
+                <div className="submenu" id="gallery-submenu">
                   {galleryItems.map((gallery) => (
                     <Link
                       key={gallery.title}
@@ -115,14 +162,15 @@ function TopNav() {
           }
 
           return (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => `menu-btn${isActive ? ' active' : ''}`}
-              end={item.to === '/'}
-            >
-              {item.label}
-            </NavLink>
+            <div className="menu-item" key={item.to}>
+              <NavLink
+                to={item.to}
+                className={({ isActive }) => `menu-btn${isActive ? ' active' : ''}`}
+                end={item.to === '/'}
+              >
+                {item.label}
+              </NavLink>
+            </div>
           )
         })}
       </div>
@@ -178,10 +226,16 @@ function SiteHeader({ title, showBooking = false }) {
   )
 }
 
-function AboutSection() {
+function AboutSection({ isFull = false }) {
+  const title = isFull ? 'Rreth nesh' : 'Elegance ne Prizren'
+
   return (
-    <section className="section about">
+    <section className={`section about${isFull ? ' about-full' : ''}`}>
       <div className="about-grid">
+        <div
+          className="about-media"
+          style={{ backgroundImage: "url('/images/scraped/about-left-exact.png')" }}
+        />
         <div
           className="about-media"
           style={{ backgroundImage: "url('/images/scraped/about-left.jpg')" }}
@@ -190,30 +244,63 @@ function AboutSection() {
           className="about-media"
           style={{ backgroundImage: "url('/images/scraped/about-right.jpg')" }}
         />
+        {isFull ? (
+          <div
+            className="about-media"
+            style={{ backgroundImage: "url('/images/scraped/about-left-new.jpg')" }}
+          />
+        ) : null}
+        {isFull ? (
+          <div
+            className="about-media"
+            style={{ backgroundImage: "url('/images/scraped/gallery-1.jpg')" }}
+          />
+        ) : null}
         <div className="about-copy">
-          <h2>Elegance ne Prizren</h2>
-          <p>
-            Premium Park Hotel ne Prizren, Kosove, ju mirepret me nje pervoje qe nderthur
-            rehati moderne me hijeshine klasike te qytetit. I vendosur ne nje ndertese elegante
-            ne qender te Prizrenit, hoteli mishron nje vizion te qarte per sherbim te shkelqyer
-            dhe standarde te larta te mikpritjes bashkekohore.
-          </p>
-          <Link className="btn btn-dark" to="/services">
-            Shihni sherbimet
-          </Link>
+          <h2>{title}</h2>
+          {isFull ? (
+            <>
+              <p>
+                Premium Park Hotel është një hotel elegant i vendosur në zemër të Prizrenit, i
+                krijuar për të ofruar një përvojë mikpritjeje të nivelit të lartë. Me arkitekturë
+                moderne, ambient të rafinuar dhe shërbim të kujdesshëm në çdo detaj, hoteli
+                garanton rehati dhe cilësi për çdo mysafir.
+              </p>
+              <p>
+                Me <strong>45 dhoma dhe 3 suita të dizajnuara me elegancë</strong>, çdo hapësirë
+                është e pajisur për të ofruar komoditet maksimal dhe një atmosferë relaksuese,
+                duke e bërë qëndrimin ideal si për udhëtime biznesi ashtu edhe për pushime.
+              </p>
+            </>
+          ) : (
+            <p>
+              Premium Park Hotel ne Prizren, Kosove, ju mirepret me nje pervoje qe nderthur
+              rehati moderne me hijeshine klasike te qytetit. I vendosur ne nje ndertese elegante
+              ne qender te Prizrenit, hoteli mishron nje vizion te qarte per sherbim te shkelqyer
+              dhe standarde te larta te mikpritjes bashkekohore.
+            </p>
+          )}
+          {!isFull ? (
+            <Link className="btn btn-dark" to="/services">
+              Shihni sherbimet
+            </Link>
+          ) : null}
         </div>
       </div>
     </section>
   )
 }
-
 function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
-  const [restaurantIndex, setRestaurantIndex] = useState(0)
-  const [restaurantDirection, setRestaurantDirection] = useState(1)
+  const [isServicesPaused, setIsServicesPaused] = useState(false)
+
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   useEffect(() => {
+    if (prefersReducedMotion || isServicesPaused) return undefined
+
     const timer = setInterval(() => {
       setActiveIndex((currentIndex) => {
         const lastIndex = amenities.length - 1
@@ -233,9 +320,53 @@ function ServicesSection() {
     }, 3000)
 
     return () => clearInterval(timer)
-  }, [direction])
+  }, [direction, prefersReducedMotion, isServicesPaused])
+
+  return (
+    <section className="section services">
+      <div className="section-head">
+        <h2>Sherbime te Perzgjedhura per Rehati te Persosur</h2>
+      </div>
+      <div
+        className="services-slider-viewport"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Slider i dhomave"
+        onMouseEnter={() => setIsServicesPaused(true)}
+        onMouseLeave={() => setIsServicesPaused(false)}
+        onFocusCapture={() => setIsServicesPaused(true)}
+        onBlurCapture={() => setIsServicesPaused(false)}
+      >
+        <div
+          className="services-slider-track"
+          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          aria-live="off"
+        >
+          {amenities.map((item) => (
+            <article id={slugify(item.title)} className="service-slide" key={item.title}>
+              <div className="service-card">
+                <div className="service-image" style={{ backgroundImage: `url('${item.image}')` }} />
+                <h3>{item.title}</h3>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function RestaurantSliderSection() {
+  const [restaurantIndex, setRestaurantIndex] = useState(0)
+  const [restaurantDirection, setRestaurantDirection] = useState(1)
+  const [isRestaurantPaused, setIsRestaurantPaused] = useState(false)
+
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   useEffect(() => {
+    if (prefersReducedMotion || isRestaurantPaused) return undefined
+
     const timer = setInterval(() => {
       setRestaurantIndex((currentIndex) => {
         const lastIndex = restaurantSlides.length - 1
@@ -255,37 +386,26 @@ function ServicesSection() {
     }, 3500)
 
     return () => clearInterval(timer)
-  }, [restaurantDirection])
+  }, [restaurantDirection, prefersReducedMotion, isRestaurantPaused])
 
   return (
-    <section className="section services">
-      <div className="section-head">
-        <h2>Sherbime te Perzgjedhura per Rehati te Persosur</h2>
-      </div>
-      <div className="services-slider-viewport">
-        <div
-          className="services-slider-track"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-          aria-live="polite"
-        >
-          {amenities.map((item) => (
-            <article id={slugify(item.title)} className="service-slide" key={item.title}>
-              <div className="service-card">
-                <div className="service-image" style={{ backgroundImage: `url('${item.image}')` }} />
-                <h3>{item.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-
+    <section className="section restaurant-section">
       <div className="restaurant-slider-wrap">
-        <h3 className="restaurant-slider-title">Restaurant</h3>
-        <div className="restaurant-slider-viewport">
+        <h3 className="restaurant-slider-title">Restoranti</h3>
+        <div
+          className="restaurant-slider-viewport"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Slider i restorantit"
+          onMouseEnter={() => setIsRestaurantPaused(true)}
+          onMouseLeave={() => setIsRestaurantPaused(false)}
+          onFocusCapture={() => setIsRestaurantPaused(true)}
+          onBlurCapture={() => setIsRestaurantPaused(false)}
+        >
           <div
             className="restaurant-slider-track"
             style={{ transform: `translateX(-${restaurantIndex * 100}%)` }}
-            aria-live="polite"
+            aria-live="off"
           >
             {restaurantSlides.map((item) => (
               <div className="restaurant-slide" key={item.image}>
@@ -298,6 +418,24 @@ function ServicesSection() {
           </div>
         </div>
       </div>
+    </section>
+  )
+}
+
+function RoomsDetailSection() {
+  const location = useLocation()
+  const roomId = location.hash.replace('#', '')
+  const selectedRoom = amenities.find((room) => slugify(room.title) === roomId) ?? amenities[0]
+
+  return (
+    <section className="section rooms-detail">
+      <div className="section-head">
+        <h2>Dhomat Tona</h2>
+      </div>
+      <article id={slugify(selectedRoom.title)} className="room-detail-card">
+        <div className="room-detail-image" style={{ backgroundImage: `url('${selectedRoom.image}')` }} />
+        <h3>{selectedRoom.title}</h3>
+      </article>
     </section>
   )
 }
@@ -345,10 +483,39 @@ function TestimonialsSection() {
 
 function LocationSection() {
   return (
-    <section className="cta-band">
-      <div className="cta-overlay" />
-      <div className="cta-content">
-        <h2>Rezervoni Sot dhe Perjetoni Elegancen qe Mbetet ne Kujtese</h2>
+    <section className="section location-section">
+      <div className="section-head">
+        <h2>Lokacioni</h2>
+      </div>
+      <div className="location-map-card">
+        <div className="location-map-frame-wrap">
+          <iframe
+            title="Harta e Premium Park Hotel"
+            className="location-map-frame"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Premium+Park+Hotel+Prizren&output=embed"
+          />
+          <a
+            className="location-map-hitbox"
+            href="https://www.google.com/maps/dir/?api=1&destination=Premium+Park+Hotel+Prizren"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Hap drejtimin ne Google Maps"
+          />
+        </div>
+        <div className="location-map-copy">
+          <h3>Premium Park Hotel</h3>
+          <p>Rr. Tirana P.n., Prizren 20000, Kosove</p>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Premium+Park+Hotel+Prizren"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-dark"
+          >
+            Hap drejtimin
+          </a>
+        </div>
       </div>
     </section>
   )
@@ -423,6 +590,7 @@ function HomePage() {
       <main>
         <AboutSection />
         <ServicesSection />
+        <RestaurantSliderSection />
       </main>
       <Footer />
     </>
@@ -432,9 +600,9 @@ function HomePage() {
 function AboutPage() {
   return (
     <>
-      <SiteHeader title="Profili Yne" />
+      <SiteHeader title="Rreth Nesh" />
       <main>
-        <AboutSection />
+        <AboutSection isFull />
       </main>
       <Footer />
     </>
@@ -442,11 +610,15 @@ function AboutPage() {
 }
 
 function ServicesPage() {
+  const location = useLocation()
+  const roomId = location.hash.replace('#', '')
+  const hasSelectedRoom = roomItems.some((room) => room.id === roomId)
+
   return (
     <>
-      <SiteHeader title="Komoditetet" />
+      <SiteHeader title="Dhomat" />
       <main>
-        <ServicesSection />
+        {hasSelectedRoom ? <RoomsDetailSection /> : <ServicesSection />}
       </main>
       <Footer />
     </>
@@ -456,7 +628,7 @@ function ServicesPage() {
 function GalleryPage() {
   return (
     <>
-      <SiteHeader title="Galeri Elegance" />
+      <SiteHeader title="Galeria" />
       <main>
         <GallerySection />
       </main>
@@ -468,8 +640,9 @@ function GalleryPage() {
 function TestimonialsPage() {
   return (
     <>
-      <SiteHeader title="Pershtypje" />
+      <SiteHeader title="Restoranti" />
       <main>
+        <RestaurantSliderSection />
         <TestimonialsSection />
       </main>
       <Footer />
@@ -480,7 +653,7 @@ function TestimonialsPage() {
 function LocationPage() {
   return (
     <>
-      <SiteHeader title="Destinacioni" />
+      <SiteHeader title="Lokacioni" />
       <main>
         <LocationSection />
       </main>
@@ -518,3 +691,4 @@ function App() {
 }
 
 export default App
+
