@@ -167,11 +167,43 @@ function App() {
           </div>
           <div>
             <h3>Kontakt</h3>
-            <p>Rr. Tirana P.n. Prizren 20000</p>
-            <p>+383 29 222 444</p>
-            <p>+383 43 504 504</p>
-            <p><a href="https://www.instagram.com/premiumparkhotel/" target="_blank" rel="noreferrer">Instagram</a></p>
-            <p><a href="https://www.facebook.com/pparkhotel" target="_blank" rel="noreferrer">Facebook</a></p>
+            <p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Rr.+Tirana+P.n.+Prizren+20000"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Rr. Tirana P.n. Prizren 20000
+              </a>
+            </p>
+            <div className="call-buttons">
+              <a href="tel:+38329222444" className="call-btn">+383 29 222 444</a>
+              <a href="tel:+38343504504" className="call-btn">+383 43 504 504</a>
+            </div>
+            <div className="social-links">
+              <a
+                href="https://www.instagram.com/premiumparkhotel/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="social-icon"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 1.75a4 4 0 0 0-4 4v8.5a4 4 0 0 0 4 4h8.5a4 4 0 0 0 4-4v-8.5a4 4 0 0 0-4-4h-8.5zm8.94 1.31a1.06 1.06 0 1 1 0 2.12 1.06 1.06 0 0 1 0-2.12zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/pparkhotel"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="social-icon"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13.5 22v-8h2.8l.42-3.2H13.5V8.76c0-.93.27-1.56 1.62-1.56h1.73V4.35A23.6 23.6 0 0 0 14.33 4c-2.5 0-4.2 1.5-4.2 4.35v2.45H7.3V14h2.83v8h3.37z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
