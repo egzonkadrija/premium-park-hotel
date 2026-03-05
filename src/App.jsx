@@ -13,14 +13,12 @@ const navItems = [
 ]
 
 const amenities = [
-  { title: 'Mengjes i bollshem gourmet', image: '/images/scraped/service-breakfast.jpg' },
-  { title: 'Spa & mireqenie', image: '/images/scraped/service-restaurant.jpg' },
-  { title: 'Salla konferencash premium', image: '/images/scraped/service-spa.jpg' },
-  { title: 'Parkim i siguruar', image: '/images/scraped/service-conference.jpg' },
-  { title: 'Restorant i rafinuar', image: '/images/scraped/service-breakfast.jpg' },
-  { title: 'WiFi falas me shpejtesi te larte', image: '/images/scraped/service-parking.jpg' },
-  { title: 'Bar me atmosfere elegante', image: '/images/scraped/gallery-1.jpg' },
-  { title: 'Ambiente pa duhan', image: '/images/scraped/service-nonsmoking.jpg' },
+  { title: 'Twin Room', image: '/images/scraped/room-1.jpg' },
+  { title: 'Large Twin Room', image: '/images/scraped/room-2.jpg' },
+  { title: 'Deluxe Double Room', image: '/images/scraped/room-3.jpg' },
+  { title: 'Classic Triple Room', image: '/images/scraped/room-4.jpg' },
+  { title: 'Deluxe Triple Room', image: '/images/scraped/room-5.jpg' },
+  { title: 'One-Bedroom Apartment', image: '/images/scraped/room-6.jpg' },
 ]
 
 const galleryItems = [
@@ -34,6 +32,12 @@ const galleryItems = [
 
 const slugify = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 const roomItems = amenities.map((item) => ({ title: item.title, id: slugify(item.title) }))
+const restaurantSlides = [
+  '/images/scraped/restaurant-slider-1.jpg',
+  '/images/scraped/restaurant-slider-2.jpg',
+  '/images/scraped/restaurant-slider-3.jpg',
+  '/images/scraped/restaurant-slider-4.jpg',
+]
 
 const testimonials = [
   {
@@ -54,7 +58,7 @@ function TopNav() {
   return (
     <nav className="topbar">
       <Link to="/" className="brand" aria-label="Premium Park Hotel home">
-        <img src="/images/scraped/logo.png" alt="Premium Park Hotel" className="top-logo" />
+        <img src="/images/scraped/source-logo.png" alt="Premium Park Hotel" className="top-logo" />
       </Link>
       <div className="menu" role="navigation" aria-label="Main menu">
         {navItems.map((item) => {
@@ -206,6 +210,8 @@ function AboutSection() {
 function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
+  const [restaurantIndex, setRestaurantIndex] = useState(0)
+  const [restaurantDirection, setRestaurantDirection] = useState(1)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -224,10 +230,32 @@ function ServicesSection() {
 
         return currentIndex + direction
       })
-    }, 3500)
+    }, 3000)
 
     return () => clearInterval(timer)
   }, [direction])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRestaurantIndex((currentIndex) => {
+        const lastIndex = restaurantSlides.length - 1
+
+        if (currentIndex === lastIndex) {
+          setRestaurantDirection(-1)
+          return currentIndex - 1
+        }
+
+        if (currentIndex === 0 && restaurantDirection === -1) {
+          setRestaurantDirection(1)
+          return currentIndex + 1
+        }
+
+        return currentIndex + restaurantDirection
+      })
+    }, 3500)
+
+    return () => clearInterval(timer)
+  }, [restaurantDirection])
 
   return (
     <section className="section services">
@@ -248,6 +276,23 @@ function ServicesSection() {
               </div>
             </article>
           ))}
+        </div>
+      </div>
+
+      <div className="restaurant-slider-wrap">
+        <h3 className="restaurant-slider-title">Restaurant</h3>
+        <div className="restaurant-slider-viewport">
+          <div
+            className="restaurant-slider-track"
+            style={{ transform: `translateX(-${restaurantIndex * 100}%)` }}
+            aria-live="polite"
+          >
+            {restaurantSlides.map((imagePath) => (
+              <div className="restaurant-slide" key={imagePath}>
+                <div className="restaurant-slide-image" style={{ backgroundImage: `url('${imagePath}')` }} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -311,7 +356,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-grid">
         <div>
-          <img src="/images/scraped/logo.png" alt="Premium Park Hotel" className="footer-logo" />
+          <img src="/images/scraped/source-logo.png" alt="Premium Park Hotel" className="footer-logo" />
           <p>Rr. Ibrahim Rugova, Prizren</p>
           <p>Kosove</p>
         </div>
