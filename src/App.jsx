@@ -187,7 +187,7 @@ function AboutSection() {
           style={{ backgroundImage: "url('/images/scraped/about-left.jpg')" }}
         />
         <div className="about-copy">
-          <h2>Elegance e Qete ne Zemer te Prizrenit</h2>
+          <h2>Elegance ne Prizren</h2>
           <p>
             Premium Park Hotel ne Prizren, Kosove, ju mirepret me nje pervoje qe nderthur
             rehati moderne me hijeshine klasike te qytetit. I vendosur ne nje ndertese elegante
