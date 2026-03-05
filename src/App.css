@@ -1,0 +1,370 @@
+:root {
+  --bg: #f3f3f3;
+  --surface: #ffffff;
+  --ink: #1d1d1d;
+  --muted: #707070;
+  --line: #e3e3e3;
+  --hero-dark: #130f0c;
+  --gold: #c9a77a;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.site {
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.hero {
+  position: relative;
+  min-height: 460px;
+  padding: 1rem 1.2rem 4rem;
+  background:
+    linear-gradient(100deg, rgba(12, 8, 5, 0.68), rgba(24, 13, 7, 0.52)),
+    url('/images/scraped/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(220, 170, 120, 0.15), transparent 42%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.15));
+  pointer-events: none;
+}
+
+.topbar {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.brand {
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+}
+
+.menu {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.menu-btn {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.menu-btn:hover {
+  color: #fff;
+  border-color: var(--gold);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 8rem auto 0;
+}
+
+h1 {
+  color: #fff;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.hero-actions {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.btn-primary {
+  color: #111;
+  background: #fff;
+}
+
+.section {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 1.2rem 0;
+}
+
+.section-head h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.1rem;
+  text-align: center;
+  margin: 0 0 1.6rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.about-copy h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  margin: 0 0 0.8rem;
+}
+
+.about-copy p {
+  color: #3f3f3f;
+  font-size: 0.83rem;
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+
+.about-media {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+}
+
+.btn-dark {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+.services {
+  padding-top: 2.2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.service-card {
+  margin: 0;
+}
+
+.service-image {
+  height: 260px;
+  background-color: #2a2019;
+  background-size: cover;
+  background-position: center;
+}
+
+.service-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 0.7rem 0 0;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-tile {
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.45rem;
+  color: #fff;
+  font-size: 1rem;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.08));
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials {
+  padding-bottom: 2.8rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.testimonial-card {
+  border-top: 1px solid var(--line);
+  padding-top: 0.65rem;
+}
+
+.stars {
+  color: #a57f54;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.testimonial-card p {
+  font-size: 0.75rem;
+  color: #474747;
+  line-height: 1.65;
+}
+
+.testimonial-card strong {
+  font-size: 0.73rem;
+}
+
+.cta-band {
+  position: relative;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(140deg, rgba(26, 20, 16, 0.56), rgba(14, 12, 10, 0.7)),
+    url('/images/scraped/cta.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.6));
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.cta-content h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+}
+
+.footer {
+  background: #fff;
+  padding: 2rem 1.2rem 2.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-grid {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.footer-grid h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.footer-grid p {
+  margin: 0.2rem 0;
+  font-size: 0.73rem;
+  color: #5b5b5b;
+}
+
+.footer-grid a {
+  color: #4a4a4a;
+  text-decoration: none;
+}
+
+.footer-grid a:hover {
+  text-decoration: underline;
+}
+
+.footer-logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .topbar {
+    justify-content: center;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-media {
+    min-height: 220px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-image {
+    height: 240px;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .gallery-tile {
+    min-height: 300px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
