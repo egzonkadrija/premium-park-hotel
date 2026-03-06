@@ -4,15 +4,28 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Premium Park Hotel',
-  title: 'Premium Park Hotel',
+  title: 'Qëndrim premium në zemër të Prizrenit',
   description:
-    'Një hotel me karakter, i ndërtuar për qetësi, komoditet dhe një përvojë më të rafinuar të qëndrimit në qytet.',
+    'Dhoma të qeta, ambient i rafinuar dhe mikpritje e kujdesshme për udhëtime biznesi, fundjava dhe qëndrime të zgjatura.',
   image: '/images/scraped/hero-candidate-1.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Shfleto Dhomat', to: '/services' },
 }
 
-const featuredRooms = roomItems.slice(0, 3)
+const featuredRooms = [
+  {
+    ...roomItems[0],
+    homeTitle: 'Dhomë Dyshe',
+  },
+  {
+    ...roomItems[2],
+    homeTitle: 'Dhomë Dopio Deluxe',
+  },
+  {
+    ...roomItems[5],
+    homeTitle: 'Apartament me Një Dhomë Gjumi',
+  },
+]
 
 export default function HomePage() {
   return (
@@ -32,30 +45,30 @@ export default function HomePage() {
         <div className="signature-grid">
           <div className="signature-copy">
             <SectionIntro
-              eyebrow="Qëndrim me identitet"
-              title="Rreth Hotelit"
-              description="I vendosur pranë zemrës së Prizrenit, hoteli ndërthur materialet e ngrohta, shërbimin e kujdesshëm dhe një prani urbane që ndihet premium pa qenë e rënduar."
+              eyebrow="Rreth Hotelit"
+              title="Mikpritje e qetë me karakter urban."
+              description="Premium Park Hotel ndërthur rehati, materialitet të ngrohtë dhe një ritëm të qetë qëndrimi, vetëm pak minuta nga qendra e Prizrenit."
             />
             <div className="signature-actions">
               <Link to="/about" className="btn btn-outline-dark">
-                Rreth Hotelit
+                Rreth Nesh
               </Link>
               <Link to="/contact" className="text-link">
-                Planifiko qëndrimin
+                Na kontaktoni
               </Link>
             </div>
           </div>
           <div className="signature-media">
-            <img src="/images/scraped/hero.jpg" alt="Premium Park Hotel exterior" />
+            <img src="/images/scraped/restaurant-07.jpg" alt="Premium Park Hotel identity" />
           </div>
         </div>
       </section>
 
       <section className="section">
         <SectionIntro
-          eyebrow="Suita & Dhomat"
-          title="Dhomat & Akomodimi"
-          description="Zgjedhje të kuruara për mysafirë biznesi, çifte dhe qëndrime më të gjata, me fokus te materiali, ndriçimi dhe funksioni."
+          eyebrow="Dhomat"
+          title="Suita & Dhoma"
+          description="Tre kategori të zgjedhura për të treguar rehatinë, hapësirën dhe karakterin e qëndrimit në Premium Park."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {featuredRooms.map((room) => (
@@ -66,7 +79,7 @@ export default function HomePage() {
                   <span>{room.guests}</span>
                   <span>{room.size}</span>
                 </p>
-                <h3>{room.title}</h3>
+                <h3>{room.homeTitle}</h3>
                 <p>{room.summary}</p>
                 <div className="card-actions">
                   <Link to={`/services#${room.id}`} className="text-link">
@@ -84,9 +97,9 @@ export default function HomePage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Jetesë & Evente"
-          title="Restaurant & Bar"
-          description="Qëndrimi në hotel nuk përfundon te dhoma; ai vazhdon në mbrëmje, takime dhe kohë cilësore brenda ambienteve."
+          eyebrow="Restoranti & Eventet"
+          title="Përvoja vazhdon përtej dhomës."
+          description="Restoranti, bari dhe ambientet funksionale e zgjasin qëndrimin në një ritëm më social, më të qetë dhe më të plotë."
         />
         <div className="luxury-card-grid luxury-card-grid-2">
           {featuredExperiences.map((item) => (
@@ -106,14 +119,15 @@ export default function HomePage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Pamje e Kuruar"
-          title="Galeria Jone"
+          eyebrow="Galeria"
+          title="Pamje nga Premium Park"
+          description="Disa fragmente nga dhomat, restoranti dhe atmosfera që formon identitetin e hotelit."
           align="center"
         />
         <div className="mosaic-grid">
-          <img className="span-2" src="/images/scraped/gallery-1.jpg" alt="Gallery interior one" />
-          <img src="/images/scraped/restaurant-bar-3.jpg" alt="Terrace lounge" />
-          <img src="/images/scraped/gallery-3.jpg" alt="Relax area" />
+          <img className="span-2" src="/images/scraped/hero.jpg" alt="Premium Park Hotel exterior sign" />
+          <img src="/images/scraped/room-6.jpg" alt="Apartment room" />
+          <img src="/images/scraped/restaurant-bar-3.jpg" alt="Restaurant lounge" />
           <img src="/images/scraped/service-conference.jpg" alt="Conference room" />
           <img className="span-2" src="/images/scraped/restaurant-slider-4.jpg" alt="Restaurant interior" />
         </div>
@@ -127,8 +141,9 @@ export default function HomePage() {
       <section className="testimonial-band">
         <div className="section">
           <SectionIntro
-            eyebrow="Zëri i Mysafirëve"
-            title="Pershtypje"
+            eyebrow="Mysafirët"
+            title="Përshtypjet e mysafirëve"
+            description="Qetësia, shërbimi dhe rehatia janë arsyet që përmenden më shpesh nga mysafirët tanë."
             align="center"
           />
           <div className="luxury-card-grid luxury-card-grid-3">
@@ -146,10 +161,10 @@ export default function HomePage() {
       <section className="section">
         <div className="closing-banner">
           <div>
-            <p className="section-eyebrow">Rezervime & Kontakt</p>
-            <h2>Na Kontaktoni</h2>
+            <p className="section-eyebrow">Rezervime</p>
+            <h2>Planifikoni qëndrimin tuaj</h2>
             <p>
-              Rezervo direkt, na telefono ose dërgo një kërkesë për qëndrim, event apo informacion shtesë.
+              Rezervo direkt ose dërgo një kërkesë për dhoma, evente dhe çdo informacion shtesë.
             </p>
           </div>
           <div className="closing-banner-actions">

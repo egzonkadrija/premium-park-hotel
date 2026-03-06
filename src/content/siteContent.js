@@ -17,10 +17,10 @@ export const socialLinks = {
 }
 
 export const homeStats = [
-  { value: '45', label: 'Dhoma Premium' },
-  { value: '3', label: 'Suita Ekskluzive' },
-  { value: '24/7', label: 'Mikpritje & Sherbim' },
-  { value: 'Qender', label: 'Prane Prizrenit Historik' },
+  { value: '45', label: 'Dhoma' },
+  { value: '3', label: 'Suita' },
+  { value: '24/7', label: 'Shërbim' },
+  { value: 'Qendër', label: 'Prizren' },
 ]
 
 export const roomItems = [
@@ -94,20 +94,20 @@ export const roomItems = [
 
 export const featuredExperiences = [
   {
-    title: 'Restaurant & Bar',
+    title: 'Restoranti & Bari',
     description:
-      'Ambiente me dritë të kontrolluar, tone druri dhe një atmosferë të rafinuar për darka, takime dhe mbrëmje të qeta.',
-    image: '/images/scraped/restaurant-slider-4.jpg',
+      'Ambiente me dritë të butë, tone druri dhe një atmosferë të qetë për darka, takime dhe mbrëmje të kujdesshme.',
+    image: '/images/scraped/restaurant-slider-2.jpg',
     to: '/testimonials',
-    cta: 'Zbulo Restorantin',
+    cta: 'Shiko restorantin',
   },
   {
-    title: 'Salla te Konferencave',
+    title: 'Salla e Konferencave',
     description:
-      'Hapësira funksionale për takime biznesi, evente të kuruara dhe prezantime në zemër të Prizrenit.',
+      'Hapësirë funksionale për takime biznesi, evente private dhe prezantime në një ambient të rregullt.',
     image: '/images/scraped/service-conference.jpg',
     to: '/location',
-    cta: 'Shiko Hapesirat',
+    cta: 'Shiko sallën',
   },
 ]
 
