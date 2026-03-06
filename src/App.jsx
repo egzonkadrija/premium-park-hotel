@@ -54,6 +54,15 @@ const testimonials = [
   },
 ]
 
+const homeServices = [
+  { title: 'Mikpritje e ngrohte', image: '/images/scraped/service-restaurant.jpg' },
+  { title: 'Restorant', image: '/images/scraped/service-bar.jpg' },
+  { title: 'Salla Konferencash', image: '/images/scraped/service-conference.jpg' },
+  { title: 'Parking', image: '/images/scraped/service-parking.jpg' },
+  { title: 'Dhoma me cilesi', image: '/images/scraped/service-nonsmoking.jpg' },
+  { title: 'WiFi falas', image: '/images/scraped/service-wifi.jpg' },
+]
+
 function TopNav() {
   const location = useLocation()
   const [openSubmenu, setOpenSubmenu] = useState(null)
@@ -103,7 +112,7 @@ function TopNav() {
                   aria-controls="rooms-submenu"
                   onClick={() => setOpenSubmenu(openSubmenu === 'services' ? null : 'services')}
                 >
-                  â–¾
+                  ▾
                 </button>
                 <div className="submenu rooms-submenu" id="rooms-submenu">
                   {roomItems.map((room) => (
@@ -142,7 +151,7 @@ function TopNav() {
                   aria-controls="gallery-submenu"
                   onClick={() => setOpenSubmenu(openSubmenu === 'gallery' ? null : 'gallery')}
                 >
-                  â–¾
+                  ▾
                 </button>
                 <div className="submenu" id="gallery-submenu">
                   {galleryItems.map((gallery) => (
@@ -202,9 +211,9 @@ function TopNav() {
   )
 }
 
-function SiteHeader({ title, showBooking = false }) {
+function SiteHeader({ title, showBooking = false, variant = 'default' }) {
   return (
-    <header className="hero">
+    <header className={`hero${variant === 'home' ? ' hero-home' : ''}`}>
       <div className="hero-overlay" />
       <TopNav />
       <div className="hero-content">
@@ -226,6 +235,65 @@ function SiteHeader({ title, showBooking = false }) {
   )
 }
 
+function HomeAboutSection() {
+  return (
+    <section className="section home-about">
+      <div className="home-about-grid">
+        <article className="home-about-card">
+          <img src="/images/scraped/hero.jpg" alt="Premium Park Hotel" />
+          <p>
+            Premium Park Hotel në Prizren, Kosovë ju ofron vendndodhje unike për të shijuar
+            Prizrenin dhe atmosferën e tij.
+          </p>
+          <Link to="/about" className="btn btn-dark">Lexo me shume</Link>
+        </article>
+        <article className="home-about-card home-about-card-right">
+          <h3>Rreth Premium Park Hotel</h3>
+          <p>
+            Në një ndërtesë elegante në qendër të Prizrenit, hoteli paraqet standarde të larta të
+            mikpritjes, rehatisë dhe shërbimit profesional.
+          </p>
+          <img src="/images/scraped/restaurant-07.jpg" alt="Ambient i brendshem i hotelit" />
+        </article>
+      </div>
+    </section>
+  )
+}
+
+function HomeServicesSection() {
+  return (
+    <section className="section home-services">
+      <div className="home-section-head">
+        <h2>Lista E Sherbimeve</h2>
+      </div>
+      <div className="home-services-grid">
+        {homeServices.map((item) => (
+          <article key={item.title} className="home-service-tile">
+            <img src={item.image} alt={item.title} />
+            <h3>{item.title}</h3>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function HomeGallerySection() {
+  return (
+    <section className="section home-gallery">
+      <div className="home-section-head">
+        <h2>Pamja Jone!</h2>
+      </div>
+      <div className="home-gallery-grid">
+        <img src="/images/scraped/gallery-1.jpg" alt="Galeri 1" />
+        <img src="/images/scraped/gallery-2.jpg" alt="Galeri 2" />
+        <img src="/images/scraped/gallery-3.jpg" alt="Galeri 3" />
+        <img src="/images/scraped/gallery-4.jpg" alt="Galeri 4" />
+      </div>
+    </section>
+  )
+}
+
 function AboutSection({ isFull = false }) {
   const title = isFull ? 'Rreth nesh' : 'Elegance ne Prizren'
 
@@ -234,52 +302,55 @@ function AboutSection({ isFull = false }) {
       <div className="about-grid">
         <div
           className="about-media"
-          style={{ backgroundImage: "url('/images/scraped/about-left-exact.png')" }}
+          style={{ backgroundImage: "url('/images/scraped/service-spa.jpg')" }}
         />
         <div
           className="about-media"
-          style={{ backgroundImage: "url('/images/scraped/about-left.jpg')" }}
+          style={{ backgroundImage: "url('/images/scraped/room-6.jpg')" }}
         />
         <div
           className="about-media"
-          style={{ backgroundImage: "url('/images/scraped/about-right.jpg')" }}
+          style={{ backgroundImage: "url('/images/scraped/restaurant-slider-4.jpg')" }}
         />
         {isFull ? (
           <div
             className="about-media"
-            style={{ backgroundImage: "url('/images/scraped/about-left-new.jpg')" }}
+            style={{ backgroundImage: "url('/images/scraped/restaurant-07.jpg')" }}
           />
         ) : null}
         {isFull ? (
           <div
             className="about-media"
-            style={{ backgroundImage: "url('/images/scraped/gallery-1.jpg')" }}
+            style={{ backgroundImage: "url('/images/scraped/service-conference.jpg')" }}
           />
         ) : null}
         <div className="about-copy">
           <h2>{title}</h2>
-          {isFull ? (
-            <>
+          <div className="about-copy-body">
+            {isFull ? (
+              <>
+                <p>
+                  Premium Park Hotel në Prizren, Kosovë ju ofron vendndodhje unike për të shijuar
+                  Prizrenin. Në një ndërtesë elegante në qendër të Prizrenit, Premium Park Hotel
+                  është rezultat i një vizioni të qartë për eshme të hotelerisë dhe standarde të reja
+                  të përsosmërisë në mikpritje.
+                </p>
+                <p>
+                  <strong>45 dhomat dhe 3 suitat e hotelit</strong> janë të pajisura plotësisht për
+                  të plotësuar nevojat e mysafirëve që udhëtojnë për biznes apo për pushime.
+                  Mikpritja dhe shërbimet e dizajnuara deri në detajet më të vogla do t&apos;ju bëjnë
+                  të ndiheni të shkëlqyeshëm.
+                </p>
+              </>
+            ) : (
               <p>
-                Premium Park Hotel është një hotel elegant i vendosur në zemër të Prizrenit, i
-                krijuar për të ofruar një përvojë mikpritjeje të nivelit të lartë. Me arkitekturë
-                moderne, ambient të rafinuar dhe shërbim të kujdesshëm në çdo detaj, hoteli
-                garanton rehati dhe cilësi për çdo mysafir.
+                Premium Park Hotel në Prizren, Kosovë ju ofron vendndodhje unike për të shijuar
+                Prizrenin. Në një ndërtesë elegante në qendër të Prizrenit, Premium Park Hotel është
+                rezultat i një vizioni të qartë për eshme të hotelerisë dhe standarde të reja të
+                përsosmërisë në mikpritje.
               </p>
-              <p>
-                Me <strong>45 dhoma dhe 3 suita të dizajnuara me elegancë</strong>, çdo hapësirë
-                është e pajisur për të ofruar komoditet maksimal dhe një atmosferë relaksuese,
-                duke e bërë qëndrimin ideal si për udhëtime biznesi ashtu edhe për pushime.
-              </p>
-            </>
-          ) : (
-            <p>
-              Premium Park Hotel ne Prizren, Kosove, ju mirepret me nje pervoje qe nderthur
-              rehati moderne me hijeshine klasike te qytetit. I vendosur ne nje ndertese elegante
-              ne qender te Prizrenit, hoteli mishron nje vizion te qarte per sherbim te shkelqyer
-              dhe standarde te larta te mikpritjes bashkekohore.
-            </p>
-          )}
+            )}
+          </div>
           {!isFull ? (
             <Link className="btn btn-dark" to="/services">
               Shihni sherbimet
@@ -521,6 +592,94 @@ function LocationSection() {
   )
 }
 
+function HomeContactCtaSection() {
+  return (
+    <section className="section contact-cta-section">
+      <div className="contact-cta-card">
+        <div className="contact-cta-overlay" />
+        <div className="contact-cta-content">
+          <h2>KONTAKTI</h2>
+          <p>Keni pyetje per rezervime, evente apo informata shtese? Ekipi yne ju pergjigjet menjehere.</p>
+          <Link to="/contact" className="btn btn-primary">
+            Na Kontaktoni
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ContactInfoSection() {
+  return (
+    <section className="section contact-info-section">
+      <div className="contact-info-header">
+        <p>Keni ndonje pyetje?</p>
+        <h2>Informacion</h2>
+      </div>
+      <div className="contact-info-grid">
+        <a
+          className="contact-info-card contact-info-card-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=Premium+Park+Hotel+Prizren"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Hap lokacionin ne Google Maps"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+          </svg>
+          <p>Rr. Tirana P.n., Prizren 20000</p>
+        </a>
+        <a
+          className="contact-info-card contact-info-card-link"
+          href="mailto:info@premiumparkhotel.com"
+          aria-label="Dergo email te info@premiumparkhotel.com"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11zm2 .2v.2l8 5.1 8-5.1v-.2H4zm16 2.5-7.5 4.8a1 1 0 0 1-1 0L4 9.2v8.3c0 .3.2.5.5.5h15a.5.5 0 0 0 .5-.5V9.2z" />
+          </svg>
+          <p>info@premiumparkhotel.com</p>
+        </a>
+        <a
+          className="contact-info-card contact-info-card-link"
+          href="tel:+38329222444"
+          aria-label="Telefono +383 29 222 444"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.6 10.8c1.7 3.2 3.9 5.4 7.1 7.1l2.4-2.4a1 1 0 0 1 1-.2 11.2 11.2 0 0 0 3.5.6 1 1 0 0 1 1 1V21a1 1 0 0 1-1 1A18.6 18.6 0 0 1 2 3a1 1 0 0 1 1-1h3.9a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .6 3.5 1 1 0 0 1-.2 1l-1.7 1.7z" />
+          </svg>
+          <div>
+            <p>+383 29 222 444</p>
+            <p>+383 43 504 504</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  )
+}
+
+function ContactFormSection() {
+  return (
+    <section className="section contact-form-section">
+      <div className="contact-form-layout">
+        <div className="contact-copy">
+          <h2>Ju na tregoni. Ne degjojme.</h2>
+          <p>
+            Per cdo pyetje rreth rezervimeve, eventeve apo sherbimeve tona, na shkruani dhe ekipi yne do
+            t&apos;ju ktheje pergjigje sa me shpejt.
+          </p>
+        </div>
+        <form className="contact-form-card" onSubmit={(event) => event.preventDefault()}>
+          <input type="text" placeholder="Emri" aria-label="Emri" />
+          <input type="email" placeholder="Email" aria-label="Email" />
+          <input type="text" placeholder="Subjekti" aria-label="Subjekti" />
+          <textarea placeholder="Mesazhi" aria-label="Mesazhi" rows={4} />
+          <button type="submit" className="btn btn-dark">Submit</button>
+        </form>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="footer">
@@ -586,11 +745,13 @@ function Footer() {
 function HomePage() {
   return (
     <>
-      <SiteHeader title="Elegance dhe Mikpritje" showBooking />
+      <SiteHeader title="Shkelqesi ne Mikpritje!" showBooking variant="home" />
       <main>
-        <AboutSection />
-        <ServicesSection />
-        <RestaurantSliderSection />
+        <HomeAboutSection />
+        <HomeServicesSection />
+        <HomeGallerySection />
+        <TestimonialsSection />
+        <HomeContactCtaSection />
       </main>
       <Footer />
     </>
@@ -665,7 +826,11 @@ function LocationPage() {
 function ContactPage() {
   return (
     <>
-      <SiteHeader title="Na Kontaktoni" />
+      <SiteHeader title="Kontaktoni" />
+      <main>
+        <ContactInfoSection />
+        <ContactFormSection />
+      </main>
       <Footer />
     </>
   )
