@@ -6,11 +6,13 @@ import GalleryPage from './pages/GalleryPage'
 import RestaurantPage from './pages/RestaurantPage'
 import LocationPage from './pages/LocationPage'
 import ContactPage from './pages/ContactPage'
+import RouteScrollManager from './components/RouteScrollManager'
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
+      <RouteScrollManager />
       <div className="site-shell">
         <Routes>
           <Route path="/" element={<HomePage />} />

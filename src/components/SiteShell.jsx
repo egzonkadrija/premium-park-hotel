@@ -21,6 +21,8 @@ function SocialLinks({ light = false }) {
 
 function TopNav({ transparent }) {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18)
@@ -29,14 +31,37 @@ function TopNav({ transparent }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname, location.hash])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const navClass = transparent && !scrolled ? 'topbar topbar-transparent' : 'topbar'
 
   return (
-    <nav className={navClass} aria-label="Main navigation">
+    <nav className={`${navClass}${menuOpen ? ' is-menu-open' : ''}`} aria-label="Main navigation">
       <Link to="/" className="brand" aria-label="Premium Park Hotel home">
         <img src="/images/scraped/source-logo.png" alt="Premium Park Hotel" className="top-logo" />
       </Link>
-      <div className="menu">
+      <button
+        type="button"
+        className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+      <div id="mobile-menu" className={`menu${menuOpen ? ' is-open' : ''}`}>
         {navItems.map((item) => (
           <NavLink
             key={item.to}
@@ -47,6 +72,12 @@ function TopNav({ transparent }) {
             {item.label}
           </NavLink>
         ))}
+        <div className="menu-overlay-actions">
+          <a href={bookingHref} target="_blank" rel="noreferrer" className="nav-book-btn">
+            Rezervo
+          </a>
+          <SocialLinks light={transparent && !scrolled} />
+        </div>
       </div>
       <div className="topbar-actions">
         <a href={bookingHref} target="_blank" rel="noreferrer" className="nav-book-btn">
