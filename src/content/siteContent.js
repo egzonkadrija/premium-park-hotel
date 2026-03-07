@@ -200,15 +200,15 @@ export const testimonials = [
 export const nearbyHighlights = [
   {
     title: 'Shadervani',
-    text: 'Qendra historike me ritëm urban, kafene dhe karakter lokal.',
+    text: 'Zemra e Prizrenit me kafene, levizje dhe nje atmosfere qe e ben qytetin te ndihet i gjalle ne cdo ore.',
   },
   {
     title: 'Kalaja e Prizrenit',
-    text: 'Pamje panoramike dhe një eksperiencë që lidhet natyrshëm me qytetin.',
+    text: 'Nje ndalese me pamjen me te forte mbi qytetin, e pershtatshme per nje ecje te shkurter dhe nje perspektive me te plote.',
   },
   {
     title: 'Lidhja e Prizrenit',
-    text: 'Një pikë kulturore që i jep vizitës dimension historik dhe identitar.',
+    text: 'Pike kulturore me rendesi historike qe i jep vizites nje lexim me te thelle te identitetit te Prizrenit.',
   },
 ]
 
@@ -218,3 +218,4 @@ export const contactChannels = {
   phones: ['+383 29 222 444', '+383 43 504 504'],
   mapsHref: 'https://www.google.com/maps/dir/?api=1&destination=Premium+Park+Hotel+Prizren',
 }
+

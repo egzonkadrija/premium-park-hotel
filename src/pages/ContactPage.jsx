@@ -5,7 +5,7 @@ const hero = {
   eyebrow: 'Kontakti',
   title: 'Na Kontaktoni',
   description:
-    'Na shkruani për qëndrime, evente, pyetje operative ose për një rezervim më të shpejtë dhe më të qartë.',
+    'Na shkruani per qendrime, evente dhe cdo pyetje praktike, ose kontaktoni direkt per nje rezervim me te shpejte.',
   image: '/images/scraped/hero-candidate-3.jpg',
   primaryCta: { label: 'Rezervo Direkt', href: bookingHref },
   secondaryCta: { label: 'Telefono', href: 'tel:+38329222444' },
@@ -17,7 +17,8 @@ export default function ContactPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Informacion"
-          title="Informacion"
+          title="Informacioni i kontaktit"
+          description="Tre menyra te drejtperdrejta per te na gjetur: lokacioni, emaili dhe telefoni."
           align="center"
         />
         <div className="contact-card-grid">
@@ -41,12 +42,18 @@ export default function ContactPage() {
           <div className="contact-copy-panel">
             <SectionIntro
               eyebrow="Na shkruani"
-              title="Na shkruani"
-              description="Forma mbetet një kanal i drejtpërdrejtë për pyetje, evente dhe kërkesa operative, ndërsa rezervimi i menjëhershëm mbetet gjithmonë i disponueshëm."
+              title="Na shkruani per cdo kerkese"
+              description="Per evente, pyetje operative ose kerkesa shtese, forma me poshte mbetet kanali me i qarte per komunikim."
             />
+            <p className="body-copy">
+              Nese preferoni kontakt te menjehershem, mund te telefononi ose te rezervoni direkt ne cdo kohe.
+            </p>
             <div className="contact-side-cta">
               <a href={bookingHref} target="_blank" rel="noreferrer" className="btn btn-primary">
                 Rezervo Direkt
+              </a>
+              <a href="tel:+38329222444" className="text-link">
+                {contactChannels.phones[0]}
               </a>
             </div>
           </div>
@@ -55,8 +62,8 @@ export default function ContactPage() {
             <input type="email" placeholder="Email" aria-label="Email" />
             <input type="text" placeholder="Subjekti" aria-label="Subjekti" />
             <textarea placeholder="Mesazhi" aria-label="Mesazhi" rows={6} />
-            <button type="submit" className="btn btn-outline-dark">
-              Dërgo Kërkesën
+            <button type="submit" className="btn btn-primary">
+              Dergo Kerkesen
             </button>
           </form>
         </div>
