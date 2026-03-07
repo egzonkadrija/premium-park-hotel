@@ -76,7 +76,7 @@ img {
 .page-hero-inner {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 48px), var(--max-shell));
+  width: min(calc(100% - 48px), var(--max-content));
   margin: auto auto 96px;
   display: grid;
   gap: 16px;
@@ -500,8 +500,9 @@ img {
 }
 
 .signature-media img {
-  min-height: 520px;
-  object-position: center;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  object-position: center center;
 }
 
 .luxury-card-grid {
@@ -548,6 +549,11 @@ img {
   height: 100%;
 }
 
+.room-card.is-active {
+  border-color: rgba(176, 138, 88, 0.38);
+  box-shadow: 0 28px 56px rgba(18, 14, 11, 0.16);
+}
+
 .media-card img,
 .feature-panel img {
   width: 100%;
@@ -569,6 +575,7 @@ img {
   flex: 1;
   flex-direction: column;
   align-items: stretch;
+  gap: 14px;
 }
 
 .feature-panel {
@@ -622,6 +629,7 @@ img {
 .room-card .card-actions {
   margin-top: auto;
   justify-content: space-between;
+  padding-top: 8px;
 }
 
 .mosaic-grid {
@@ -725,7 +733,8 @@ img {
 .about-editorial-grid {
   display: grid;
   grid-template-columns: 1fr 0.95fr;
-  gap: 28px;
+  gap: 32px;
+  align-items: stretch;
 }
 
 .about-mosaic {
@@ -746,10 +755,34 @@ img {
 .about-story {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 12px 0;
+  justify-content: flex-start;
+  gap: 28px;
+  padding: 0;
   min-height: 100%;
+  align-self: stretch;
+}
+
+.about-story-body {
+  display: grid;
+  gap: 18px;
+}
+
+.about-story .section-intro {
+  gap: 12px;
+}
+
+.about-story .section-intro h2 {
+  max-width: 16ch;
+  font-size: clamp(1.85rem, 2.8vw, 2.75rem);
+  line-height: 0.98;
+}
+
+.about-story .section-description {
+  max-width: 58ch;
+}
+
+.about-story-actions {
+  margin-top: auto;
 }
 
 .facts-band {
@@ -759,7 +792,7 @@ img {
 }
 
 .facts-band article {
-  padding: 24px;
+  padding: 26px 24px;
   border-radius: var(--radius-md);
   background: rgba(255, 252, 247, 0.74);
   border: 1px solid var(--line-soft);
@@ -775,18 +808,36 @@ img {
 
 .facts-band span {
   color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
 }
 
 .room-detail-section {
   padding-top: 48px;
 }
 
+.room-detail-layout {
+  align-items: stretch;
+  gap: 32px;
+}
+
 .room-detail-copy .section-intro {
   margin-bottom: 20px;
+  gap: 12px;
+}
+
+.room-detail-copy .section-intro h2 {
+  max-width: 16ch;
+}
+
+.room-detail-copy .section-description {
+  max-width: 54ch;
 }
 
 .room-detail-copy .card-actions {
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .detail-meta {
@@ -798,6 +849,7 @@ img {
   letter-spacing: 0.1em;
   font-size: 0.78rem;
   font-weight: 700;
+  padding-top: 4px;
 }
 
 .amenity-list {
@@ -814,6 +866,7 @@ img {
   border-radius: 8px;
   background: rgba(176, 138, 88, 0.08);
   color: var(--text-deep);
+  border: 1px solid rgba(176, 138, 88, 0.12);
 }
 
 .gallery-anchor-nav {
@@ -1085,7 +1138,7 @@ img {
   }
 
   .page-hero-inner {
-    width: min(calc(100% - 32px), var(--max-shell));
+    width: min(calc(100% - 32px), var(--max-content));
   }
 
   .section {

@@ -47,7 +47,7 @@ export default function HomePage() {
             <SectionIntro
               eyebrow="Rreth Hotelit"
               title="Mikpritje e qetë me karakter urban."
-              description="Premium Park Hotel ndërthur rehati, materialitet të ngrohtë dhe një ritëm të qetë qëndrimi, vetëm pak minuta nga qendra e Prizrenit."
+              description="Premium Park Hotel ndërthur rehati, materiale të ngrohta dhe një ritëm të qetë qëndrimi, vetëm pak minuta nga qendra e Prizrenit."
             />
             <div className="signature-actions">
               <Link to="/about" className="btn btn-outline-dark">
@@ -59,7 +59,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="signature-media">
-            <img src="/images/scraped/restaurant-07.jpg" alt="Premium Park Hotel identity" />
+            <img src="/images/scraped/about-left-new.jpg" alt="Premium Park Hotel lounge" />
           </div>
         </div>
       </section>
@@ -128,7 +128,7 @@ export default function HomePage() {
           <img className="span-2" src="/images/scraped/hero.jpg" alt="Premium Park Hotel exterior sign" />
           <img src="/images/scraped/room-6.jpg" alt="Apartment room" />
           <img src="/images/scraped/restaurant-bar-3.jpg" alt="Restaurant lounge" />
-          <img src="/images/scraped/service-conference.jpg" alt="Conference room" />
+          <img src="/images/scraped/gallery-5.jpg" alt="Conference room" />
           <img className="span-2" src="/images/scraped/restaurant-slider-4.jpg" alt="Restaurant interior" />
         </div>
         <div className="section-tail">

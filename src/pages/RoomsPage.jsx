@@ -3,10 +3,10 @@ import { bookingHref, roomItems } from '../content/siteContent'
 import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
-  eyebrow: 'Dhomat & Suitat',
-  title: 'Dhomat & Akomodimi',
+  eyebrow: 'Dhomat',
+  title: 'Suita & Dhoma',
   description:
-    'Nga dhomat dyshe deri te apartamenti, secila kategori është ndërtuar për qetësi, funksion dhe një prezencë të pasur vizuale.',
+    'Nga dhomat dyshe deri te apartamenti, secila kategori është menduar për rehati, qetësi dhe një qëndrim me standard të lartë.',
   image: '/images/scraped/room-2.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Na Kontaktoni', to: '/contact' },
@@ -22,23 +22,23 @@ export default function RoomsPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Koleksioni i Dhomave"
-          title="Ejani dhe qendroni me ne"
-          description="Secila kategori ruan të njëjtin standard estetik dhe funksional, por me nivele të ndryshme hapësire dhe privatësie."
+          title="Zgjidhni dhomën që i përshtatet qëndrimit tuaj"
+          description="Secila kategori ruan të njëjtin standard rehatie dhe shërbimi, me nivele të ndryshme hapësire, privatësie dhe karakteri."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {roomItems.map((room) => (
-            <article className="media-card room-card" key={room.id}>
-              <img src={room.image} alt={room.title} />
+            <article className={`media-card room-card${activeRoom.id === room.id ? ' is-active' : ''}`} key={room.id}>
+              <img src={room.image} alt={room.displayTitle} />
               <div className="media-card-body">
                 <p className="card-meta">
                   <span>{room.guests}</span>
                   <span>{room.size}</span>
                 </p>
-                <h3>{room.title}</h3>
+                <h3>{room.displayTitle}</h3>
                 <p>{room.summary}</p>
                 <div className="card-actions">
                   <Link to={`/services#${room.id}`} className="text-link">
-                    Shiko më shumë
+                    Shiko detajet
                   </Link>
                   <a href={bookingHref} target="_blank" rel="noreferrer" className="btn btn-outline-dark">
                     Rezervo
@@ -53,12 +53,12 @@ export default function RoomsPage() {
       <section className="section room-detail-section" id={activeRoom.id}>
         <div className="room-detail-layout">
           <div className="room-detail-media">
-            <img src={activeRoom.image} alt={activeRoom.title} />
+            <img src={activeRoom.image} alt={activeRoom.displayTitle} />
           </div>
           <div className="room-detail-copy">
             <SectionIntro
-              eyebrow="Detajet"
-              title={activeRoom.title}
+              eyebrow="Detajet e dhomës"
+              title={activeRoom.displayTitle}
               description={activeRoom.description}
             />
             <div className="detail-meta">

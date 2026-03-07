@@ -4,9 +4,9 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Rreth Nesh',
-  title: 'Rreth Hotelit',
+  title: 'Rreth Premium Park Hotel',
   description:
-    'Premium Park Hotel është krijuar për mysafirë që kërkojnë më shumë se një akomodim: qetësi, materialitet, pozicion dhe shërbim të menduar në detaj.',
+    'Një hotel urban në zemër të Prizrenit, i krijuar për rehati, qetësi dhe mikpritje të menduar në çdo detaj.',
   image: '/images/scraped/hero.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Shiko Dhomat', to: '/services' },
@@ -18,20 +18,28 @@ export default function AboutPage() {
       <section className="section">
         <div className="about-editorial-grid">
           <div className="about-mosaic">
-            <img className="tall" src="/images/scraped/service-spa.jpg" alt="Hotel detail one" />
+            <img className="tall" src="/images/scraped/about-left-new.jpg" alt="Premium Park lounge" />
             <img src="/images/scraped/room-6.jpg" alt="Apartment room" />
-            <img src="/images/scraped/restaurant-07.jpg" alt="Hotel interior atmosphere" />
-            <img className="wide" src="/images/scraped/service-conference.jpg" alt="Conference facility" />
+            <img src="/images/scraped/restaurant-slider-3.jpg" alt="Restaurant interior" />
+            <img className="wide" src="/images/scraped/gallery-5.jpg" alt="Conference facility" />
           </div>
           <div className="about-story">
             <SectionIntro
-              eyebrow="Historia e Qendrimit"
-              title="Premium Park Hotel"
-              description="Në qendër të Prizrenit, Premium Park Hotel krijon një përvojë urbane që ndihet e rafinuar dhe e qetë njëkohësisht. Hapësirat janë projektuar për të mbajtur ritmin e qytetit pranë, por jo brenda dhomës suaj."
+              eyebrow="Rreth Hotelit"
+              title="Rreth Premium Park Hotel"
+              description="Premium Park Hotel në Prizren, Kosovë ju ofron një vendndodhje unike për të shijuar qytetin. Në një ndërtesë elegante në qendër të Prizrenit, hoteli është rezultat i një vizioni të qartë për shërbim cilësor dhe standarde të reja mikpritjeje."
             />
-            <p className="body-copy">
-              Me 45 dhoma dhe 3 suita, hoteli është konceptuar për të përmbushur pritjet e mysafirëve që udhëtojnë për biznes, për evente apo për një qëndrim më personal në qytet.
-            </p>
+            <div className="about-story-body">
+              <p className="body-copy">
+                Për ta bërë qëndrimin tuaj sa më të rehatshëm dhe për t&apos;ju bërë të ndiheni si në shtëpi, me kënaqësi ju ofrojmë një numër të madh shërbimesh.
+              </p>
+              <p className="body-copy">
+                45 dhomat dhe 3 suitat e hotelit janë të pajisura plotësisht për të plotësuar nevojat e mysafirëve që udhëtojnë për biznes apo për pushime. Mikpritja dhe shërbimet e menduara deri në detajet më të vogla ju bëjnë të ndiheni të mirëpritur gjatë gjithë qëndrimit.
+              </p>
+              <p className="body-copy">
+                Dhomat janë unike në çdo hollësi dhe të pajisura me mobilje të rehatshme e tërheqëse. Çdo dhomë është projektuar për të ofruar një eksperiencë relaksuese dhe autentike udhëtimi, të shoqëruar me finesë dhe kujdes personal.
+              </p>
+            </div>
             <div className="about-story-actions">
               <Link to="/contact" className="btn btn-outline-dark">
                 Kërko Informacion
@@ -44,7 +52,8 @@ export default function AboutPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Pse Premium Park"
-          title="Pse Ne"
+          title="Pse të na zgjidhni"
+          description="Tre arsye që përcaktojnë ritmin e qëndrimit dhe identitetin e hotelit."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {servicePillars.map((item) => (
@@ -67,8 +76,8 @@ export default function AboutPage() {
             <span>Suita</span>
           </article>
           <article>
-            <strong>Qender</strong>
-            <span>Prane Prizrenit Historik</span>
+            <strong>Qendër</strong>
+            <span>Pranë Prizrenit historik</span>
           </article>
           <article>
             <strong>Biznes</strong>
