@@ -46,7 +46,6 @@ export default function HomePage() {
         <div className="signature-grid">
           <div className="signature-copy">
             <SectionIntro
-              eyebrow="Rreth Hotelit"
               title="Rreth Premium Park Hotel"
               description="Premium Park Hotel nderthur rehati, materiale te ngrohta dhe nje ritem te qete qendrimi, vetem pak minuta nga qendra e Prizrenit."
               align="center"
@@ -68,7 +67,6 @@ export default function HomePage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Dhomat"
           title="Lista E Sherbimeve"
           titleNoWrap
           description="Tre kategori te zgjedhura per te treguar rehatine, hapesiren dhe karakterin e qendrimit ne Premium Park."
@@ -101,7 +99,6 @@ export default function HomePage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Restoranti & Eventet"
           title="Restaurant"
           description="Restoranti, bari dhe ambientet funksionale e zgjasin qendrimin ne nje ritem me social, me te qete dhe me te plote."
           align="center"
@@ -124,7 +121,6 @@ export default function HomePage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Galeria"
           title="Pamja Jone"
           description="Disa fragmente nga dhomat, restoranti dhe atmosfera qe formon identitetin e hotelit."
           align="center"
@@ -146,7 +142,6 @@ export default function HomePage() {
       <section className="testimonial-band">
         <div className="section">
           <SectionIntro
-            eyebrow="Mysafiret"
             title="Mysafiret Thone"
             description="Qetesia, sherbimi dhe rehatia jane arsyet qe permenden me shpesh nga mysafiret tane."
             align="center"
