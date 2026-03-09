@@ -69,6 +69,7 @@ export default function HomePage() {
         <SectionIntro
           eyebrow="Dhomat"
           title="Lista E Sherbimeve"
+          titleNoWrap
           description="Tre kategori te zgjedhura per te treguar rehatine, hapesiren dhe karakterin e qendrimit ne Premium Park."
         />
         <div className="luxury-card-grid luxury-card-grid-3">

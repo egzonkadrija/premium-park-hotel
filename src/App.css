@@ -410,6 +410,11 @@ img {
   max-width: 16ch;
 }
 
+.section-intro h2.section-title-nowrap {
+  max-width: none;
+  white-space: nowrap;
+}
+
 .section-intro-center .section-description {
   max-width: 54ch;
 }

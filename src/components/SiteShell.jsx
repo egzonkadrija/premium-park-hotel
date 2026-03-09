@@ -173,11 +173,11 @@ function MobileBookingBar() {
   )
 }
 
-export function SectionIntro({ eyebrow, title, description, align = 'left' }) {
+export function SectionIntro({ eyebrow, title, description, align = 'left', titleNoWrap = false }) {
   return (
     <div className={`section-intro section-intro-${align}`}>
       {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
-      <h2>{title}</h2>
+      <h2 className={titleNoWrap ? 'section-title-nowrap' : undefined}>{title}</h2>
       {description ? <p className="section-description">{description}</p> : null}
     </div>
   )
