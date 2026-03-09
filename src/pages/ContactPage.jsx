@@ -3,7 +3,8 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Kontakti',
-  title: 'Na Kontaktoni',
+  title: 'Kontaktoni',
+  pageTitle: 'Kontakt - Premium Park Hotel',
   description:
     'Na shkruani per qendrime, evente dhe cdo pyetje praktike, ose kontaktoni direkt per nje rezervim me te shpejte.',
   image: '/images/scraped/hero-candidate-3.jpg',
@@ -17,7 +18,7 @@ export default function ContactPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Informacion"
-          title="Informacioni i kontaktit"
+          title="Informacion"
           description="Tre menyra te drejtperdrejta per te na gjetur: lokacioni, emaili dhe telefoni."
           align="center"
         />
@@ -42,7 +43,7 @@ export default function ContactPage() {
           <div className="contact-copy-panel">
             <SectionIntro
               eyebrow="Na shkruani"
-              title="Na shkruani per cdo kerkese"
+              title="Ju na tregoni. Ne degjojme."
               description="Per evente, pyetje operative ose kerkesa shtese, forma me poshte mbetet kanali me i qarte per komunikim."
             />
             <p className="body-copy">

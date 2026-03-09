@@ -4,9 +4,10 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Dhomat',
-  title: 'Suita & Dhoma',
+  title: 'Dhomat & Akomodimi',
+  pageTitle: 'Dhomat - Premium Park Hotel',
   description:
-    'Nga dhomat dyshe deri te apartamenti, secila kategori është menduar për rehati, qetësi dhe një qëndrim me standard të lartë.',
+    'Nga dhomat dyshe deri te apartamenti, secila kategori eshte menduar per rehati, qetesi dhe nje qendrim me standard te larte.',
   image: '/images/scraped/room-2.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Na Kontaktoni', to: '/contact' },
@@ -22,8 +23,8 @@ export default function RoomsPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Koleksioni i Dhomave"
-          title="Zgjidhni dhomën që i përshtatet qëndrimit tuaj"
-          description="Secila kategori ruan të njëjtin standard rehatie dhe shërbimi, me nivele të ndryshme hapësire, privatësie dhe karakteri."
+          title="Ejani dhe qendroni me ne"
+          description="Secila kategori ruan te njejtin standard rehatie dhe sherbimi, me nivele te ndryshme hapesire, privatesie dhe karakteri."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {roomItems.map((room) => (
@@ -57,7 +58,7 @@ export default function RoomsPage() {
           </div>
           <div className="room-detail-copy">
             <SectionIntro
-              eyebrow="Detajet e dhomës"
+              eyebrow="Detajet e dhomes"
               title={activeRoom.displayTitle}
               description={activeRoom.description}
             />
@@ -72,10 +73,10 @@ export default function RoomsPage() {
             </ul>
             <div className="card-actions">
               <a href={bookingHref} target="_blank" rel="noreferrer" className="btn btn-primary">
-                Rezervo këtë dhomë
+                Rezervo kete dhome
               </a>
               <Link to="/contact" className="text-link">
-                Kërko informacion shtesë
+                Kerko informacion shtese
               </Link>
             </div>
           </div>

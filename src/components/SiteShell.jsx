@@ -186,6 +186,10 @@ export function SectionIntro({ eyebrow, title, description, align = 'left' }) {
 export function SiteShell({ hero, home = false, children }) {
   const location = useLocation()
 
+  useEffect(() => {
+    document.title = hero.pageTitle ?? `${hero.title} - Premium Park Hotel`
+  }, [hero.pageTitle, hero.title])
+
   return (
     <>
       <PageHero hero={hero} home={home || location.pathname === '/'} />

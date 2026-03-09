@@ -3,9 +3,10 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Galeria',
-  title: 'Galeria Premium Park',
+  title: 'Galeria Jone',
+  pageTitle: 'Galeria - Premium Park Hotel',
   description:
-    'Pamje të kuruara nga dhomat, restoranti, spa-ja dhe sallat e konferencave për të treguar hotelin si përvojë të plotë.',
+    'Pamje te kuruara nga dhomat, restoranti, spa-ja dhe sallat e konferencave per te treguar hotelin si pervoje te plote.',
   image: '/images/scraped/gallery-2.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Na Kontaktoni', to: '/contact' },
@@ -18,8 +19,8 @@ export default function GalleryPage() {
         <div className="gallery-anchor-shell">
           <SectionIntro
             eyebrow="Koleksionet"
-            title="Shfletoni ambientet sipas kategorisë"
-            description="Zgjidhni një kategori për të parë pamjet më përfaqësuese të hotelit."
+            title="Galeria Jone"
+            description="Zgjidhni nje kategori per te pare pamjet me perfaqesuese te hotelit."
             align="center"
           />
           <div className="gallery-anchor-nav">
@@ -34,11 +35,7 @@ export default function GalleryPage() {
 
       {galleryCollections.map((collection) => (
         <section className="section gallery-collection" id={collection.id} key={collection.id}>
-          <SectionIntro
-            eyebrow="Koleksion"
-            title={collection.title}
-            description={collection.description}
-          />
+          <SectionIntro eyebrow="Koleksion" title={collection.title} description={collection.description} />
           <div className="gallery-editorial-grid">
             {collection.images.map((image, index) => (
               <img

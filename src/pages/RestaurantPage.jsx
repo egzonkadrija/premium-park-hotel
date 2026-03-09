@@ -12,9 +12,10 @@ const restaurantImages = [
 
 const hero = {
   eyebrow: 'Restoranti & Bar',
-  title: 'Restoranti & Bari',
+  title: 'Restauranti yne ekskluziv',
+  pageTitle: 'Restaurant - Premium Park Hotel',
   description:
-    'Ambient i rafinuar, dritë e ngrohtë dhe një përvojë e menduar për darka, biseda dhe mbrëmje të qeta.',
+    'Ambient i rafinuar, drite e ngrohte dhe nje pervoje e menduar per darka, biseda dhe mbremje te qeta.',
   image: restaurantImages[3],
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Na Kontaktoni', to: '/contact' },
@@ -31,11 +32,11 @@ export default function RestaurantPage() {
           <div className="feature-split-copy">
             <SectionIntro
               eyebrow="Atmosfera"
-              title="Mirësevini"
-              description="Restoranti dhe bari janë projektuar si vazhdim natyral i qëndrimit: një vend për darkë, bisedë, takim apo një mbrëmje më të qetë."
+              title="Miresevini"
+              description="Restoranti dhe bari jane projektuar si vazhdim natyral i qendrimit: nje vend per darke, bisede, takim apo nje mbremje me te qete."
             />
             <p className="body-copy">
-              Materialet e pasura, ndriçimi i butë dhe ritmi i qetë i ambientit krijojnë një përvojë që ndihet e kujdesshme nga hyrja deri te tavolina.
+              Materialet e pasura, ndricimi i bute dhe ritmi i qete i ambientit krijojne nje pervoje qe ndihet e kujdesshme nga hyrja deri te tavolina.
             </p>
           </div>
         </div>
@@ -43,18 +44,18 @@ export default function RestaurantPage() {
 
       <section className="section">
         <SectionIntro
-          eyebrow="Përvoja"
-          title="Një vend për darkë, mikpritje dhe evente"
-          description="Nga darkat e qeta deri te eventet private, restoranti ruan të njëjtin ton elegant dhe të ngrohtë."
+          eyebrow="Pervoja"
+          title="Nje vend per darke, mikpritje dhe evente"
+          description="Nga darkat e qeta deri te eventet private, restoranti ruan te njejtin ton elegant dhe te ngrohte."
         />
         <div className="luxury-card-grid luxury-card-grid-2">
           <article className="pillar-card">
             <h3>Darka & Mikpritje</h3>
-            <p>Një atmosferë më intime për mysafirët që kërkojnë rehati vizuale, ritëm të qetë dhe shërbim të kujdesshëm.</p>
+            <p>Nje atmosfere me intime per mysafiret qe kerkojne rehati vizuale, ritem te qete dhe sherbim te kujdesshem.</p>
           </article>
           <article className="pillar-card">
             <h3>Evente Private</h3>
-            <p>Darka pune, evente private dhe rezervime të kuruara në një ambient me identitet të fortë premium.</p>
+            <p>Darka pune, evente private dhe rezervime te kuruara ne nje ambient me identitet te forte premium.</p>
           </article>
         </div>
       </section>
@@ -62,8 +63,8 @@ export default function RestaurantPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Pamje"
-          title="Fragmente nga restoranti dhe bari"
-          description="Një lexim vizual i ambienteve, tavolinave dhe materialeve që formojnë karakterin e këtij hapësire."
+          title="Pamja e Restaurantit"
+          description="Nje lexim vizual i ambienteve, tavolinave dhe materialeve qe formojne karakterin e ketij hapesire."
           align="center"
         />
         <div className="gallery-strip">
@@ -76,9 +77,9 @@ export default function RestaurantPage() {
       <section className="testimonial-band">
         <div className="section">
           <SectionIntro
-            eyebrow="Mysafirët"
-            title="Përshtypjet e mysafirëve"
-            description="Vlerësimet më të shpeshta lidhen me atmosferën, qetësinë dhe ndjesinë e një shërbimi të kujdesshëm."
+            eyebrow="Mysafiret"
+            title="Pershtypjet e mysafireve"
+            description="Vleresimet me te shpeshta lidhen me atmosferen, qetesine dhe ndjesine e nje sherbimi te kujdesshem."
             align="center"
           />
           <div className="luxury-card-grid luxury-card-grid-3">
@@ -92,7 +93,7 @@ export default function RestaurantPage() {
           </div>
           <div className="section-tail">
             <Link to="/contact" className="btn btn-secondary">
-              Rezervo tavolinë
+              Rezervo tavoline
             </Link>
           </div>
         </div>

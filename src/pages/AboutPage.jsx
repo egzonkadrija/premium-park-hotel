@@ -4,9 +4,10 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Rreth Nesh',
-  title: 'Rreth Premium Park Hotel',
+  title: 'Rreth Nesh',
+  pageTitle: 'Rreth Nesh - Premium Park Hotel',
   description:
-    'Një hotel urban në zemër të Prizrenit, i krijuar për rehati, qetësi dhe mikpritje të menduar në çdo detaj.',
+    'Nje hotel urban ne zemer te Prizrenit, i krijuar per rehati, qetesi dhe mikpritje te menduar ne cdo detaj.',
   image: '/images/scraped/hero.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Shiko Dhomat', to: '/services' },
@@ -27,22 +28,22 @@ export default function AboutPage() {
             <SectionIntro
               eyebrow="Rreth Hotelit"
               title="Rreth Premium Park Hotel"
-              description="Premium Park Hotel në Prizren, Kosovë ju ofron një vendndodhje unike për të shijuar qytetin. Në një ndërtesë elegante në qendër të Prizrenit, hoteli është rezultat i një vizioni të qartë për shërbim cilësor dhe standarde të reja mikpritjeje."
+              description="Premium Park Hotel ne Prizren, Kosove ju ofron nje vendndodhje unike per te shijuar qytetin. Ne nje ndertese elegante ne qender te Prizrenit, hoteli eshte rezultat i nje vizioni te qarte per sherbim cilesor dhe standarde te reja mikpritjeje."
             />
             <div className="about-story-body">
               <p className="body-copy">
-                Për ta bërë qëndrimin tuaj sa më të rehatshëm dhe për t&apos;ju bërë të ndiheni si në shtëpi, me kënaqësi ju ofrojmë një numër të madh shërbimesh.
+                Per ta bere qendrimin tuaj sa me te rehatshem dhe per t&apos;ju bere te ndiheni si ne shtepi, me kenaqesi ju ofrojme nje numer te madh sherbimesh.
               </p>
               <p className="body-copy">
-                45 dhomat dhe 3 suitat e hotelit janë të pajisura plotësisht për të plotësuar nevojat e mysafirëve që udhëtojnë për biznes apo për pushime. Mikpritja dhe shërbimet e menduara deri në detajet më të vogla ju bëjnë të ndiheni të mirëpritur gjatë gjithë qëndrimit.
+                45 dhomat dhe 3 suitat e hotelit jane te pajisura plotesisht per te plotesuar nevojat e mysafireve qe udhetojne per biznes apo per pushime. Mikpritja dhe sherbimet e menduara deri ne detajet me te vogla ju bejne te ndiheni te mirepritur gjate gjithe qendrimit.
               </p>
               <p className="body-copy">
-                Dhomat janë unike në çdo hollësi dhe të pajisura me mobilje të rehatshme e tërheqëse. Çdo dhomë është projektuar për të ofruar një eksperiencë relaksuese dhe autentike udhëtimi, të shoqëruar me finesë dhe kujdes personal.
+                Dhomat jane unike ne cdo hollesi dhe te pajisura me mobilje te rehatshme e terheqese. Cdo dhome eshte projektuar per te ofruar nje eksperience relaksuese dhe autentike udhetimi, te shoqeruar me finese dhe kujdes personal.
               </p>
             </div>
             <div className="about-story-actions">
               <Link to="/contact" className="btn btn-outline-dark">
-                Kërko Informacion
+                Kerko Informacion
               </Link>
             </div>
           </div>
@@ -52,8 +53,8 @@ export default function AboutPage() {
       <section className="section">
         <SectionIntro
           eyebrow="Pse Premium Park"
-          title="Pse të na zgjidhni"
-          description="Tre arsye që përcaktojnë ritmin e qëndrimit dhe identitetin e hotelit."
+          title="Jeni ne kerkim te rehatiske, qetesise dhe lokacionit te perkryer ne Prizren?"
+          description="Tre arsye qe percaktojne ritmin e qendrimit dhe identitetin e hotelit."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {servicePillars.map((item) => (
@@ -76,8 +77,8 @@ export default function AboutPage() {
             <span>Suita</span>
           </article>
           <article>
-            <strong>Qendër</strong>
-            <span>Pranë Prizrenit historik</span>
+            <strong>Qender</strong>
+            <span>Prane Prizrenit historik</span>
           </article>
           <article>
             <strong>Biznes</strong>

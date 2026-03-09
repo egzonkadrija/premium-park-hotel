@@ -4,9 +4,10 @@ import { SectionIntro, SiteShell } from '../components/SiteShell'
 
 const hero = {
   eyebrow: 'Premium Park Hotel',
-  title: 'Qëndrim premium në zemër të Prizrenit',
+  title: 'Shkelqesi ne Mikpritje!',
+  pageTitle: 'Premium Park Hotel',
   description:
-    'Dhoma të qeta, ambient i rafinuar dhe mikpritje e kujdesshme për udhëtime biznesi, fundjava dhe qëndrime të zgjatura.',
+    'Dhoma te qeta, ambient i rafinuar dhe mikpritje e kujdesshme per udhetime biznesi, fundjava dhe qendrime te zgjatura.',
   image: '/images/scraped/hero-candidate-1.jpg',
   primaryCta: { label: 'Rezervo Tani', href: bookingHref },
   secondaryCta: { label: 'Shfleto Dhomat', to: '/services' },
@@ -15,15 +16,15 @@ const hero = {
 const featuredRooms = [
   {
     ...roomItems[0],
-    homeTitle: 'Dhomë Dyshe',
+    homeTitle: 'Dhome Dyshe',
   },
   {
     ...roomItems[2],
-    homeTitle: 'Dhomë Dopio Deluxe',
+    homeTitle: 'Dhome Dopio Deluxe',
   },
   {
     ...roomItems[5],
-    homeTitle: 'Apartament me Një Dhomë Gjumi',
+    homeTitle: 'Apartament me Nje Dhome Gjumi',
   },
 ]
 
@@ -46,8 +47,8 @@ export default function HomePage() {
           <div className="signature-copy">
             <SectionIntro
               eyebrow="Rreth Hotelit"
-              title="Mikpritje e qetë me karakter urban."
-              description="Premium Park Hotel ndërthur rehati, materiale të ngrohta dhe një ritëm të qetë qëndrimi, vetëm pak minuta nga qendra e Prizrenit."
+              title="Rreth Premium Park Hotel"
+              description="Premium Park Hotel nderthur rehati, materiale te ngrohta dhe nje ritem te qete qendrimi, vetem pak minuta nga qendra e Prizrenit."
             />
             <div className="signature-actions">
               <Link to="/about" className="btn btn-outline-dark">
@@ -67,8 +68,8 @@ export default function HomePage() {
       <section className="section">
         <SectionIntro
           eyebrow="Dhomat"
-          title="Suita & Dhoma"
-          description="Tre kategori të zgjedhura për të treguar rehatinë, hapësirën dhe karakterin e qëndrimit në Premium Park."
+          title="Lista E Sherbimeve"
+          description="Tre kategori te zgjedhura per te treguar rehatine, hapesiren dhe karakterin e qendrimit ne Premium Park."
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {featuredRooms.map((room) => (
@@ -98,8 +99,8 @@ export default function HomePage() {
       <section className="section">
         <SectionIntro
           eyebrow="Restoranti & Eventet"
-          title="Përvoja vazhdon përtej dhomës."
-          description="Restoranti, bari dhe ambientet funksionale e zgjasin qëndrimin në një ritëm më social, më të qetë dhe më të plotë."
+          title="Restaurant"
+          description="Restoranti, bari dhe ambientet funksionale e zgjasin qendrimin ne nje ritem me social, me te qete dhe me te plote."
         />
         <div className="luxury-card-grid luxury-card-grid-2">
           {featuredExperiences.map((item) => (
@@ -120,8 +121,8 @@ export default function HomePage() {
       <section className="section">
         <SectionIntro
           eyebrow="Galeria"
-          title="Pamje nga Premium Park"
-          description="Disa fragmente nga dhomat, restoranti dhe atmosfera që formon identitetin e hotelit."
+          title="Pamja Jone"
+          description="Disa fragmente nga dhomat, restoranti dhe atmosfera qe formon identitetin e hotelit."
           align="center"
         />
         <div className="mosaic-grid">
@@ -141,9 +142,9 @@ export default function HomePage() {
       <section className="testimonial-band">
         <div className="section">
           <SectionIntro
-            eyebrow="Mysafirët"
-            title="Përshtypjet e mysafirëve"
-            description="Qetësia, shërbimi dhe rehatia janë arsyet që përmenden më shpesh nga mysafirët tanë."
+            eyebrow="Mysafiret"
+            title="Mysafiret Thone"
+            description="Qetesia, sherbimi dhe rehatia jane arsyet qe permenden me shpesh nga mysafiret tane."
             align="center"
           />
           <div className="luxury-card-grid luxury-card-grid-3">
@@ -162,10 +163,8 @@ export default function HomePage() {
         <div className="closing-banner">
           <div>
             <p className="section-eyebrow">Rezervime</p>
-            <h2>Planifikoni qëndrimin tuaj</h2>
-            <p>
-              Rezervo direkt ose dërgo një kërkesë për dhoma, evente dhe çdo informacion shtesë.
-            </p>
+            <h2>Planifikoni nje eksperience te paharrueshme sot!</h2>
+            <p>Rezervo direkt ose dergo nje kerkese per dhoma, evente dhe cdo informacion shtese.</p>
           </div>
           <div className="closing-banner-actions">
             <a href={bookingHref} target="_blank" rel="noreferrer" className="btn btn-primary">

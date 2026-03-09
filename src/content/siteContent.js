@@ -2,13 +2,13 @@ export const bookingHref =
   'https://www.booking.com/hotel/xk/premium-park.html?aid=304142&label=gen173nr-1FCAEoggI46AdIM1gEaJMBiAEBmAExuAEXyAEM2AEB6AEB-AECiAIBqAIDuAKwq-68BsACAdICJDUxYmQ3MTQxLWI3ZjUtNDc4MC04NzhjLTE2ZDI4OGZhOWUyZNgCBeACAQ&ucfs=1&arphpl=1#RD537394207'
 
 export const navItems = [
-  { label: 'Kreu', to: '/' },
+  { label: 'Home', to: '/' },
   { label: 'Rreth Nesh', to: '/about' },
   { label: 'Dhomat', to: '/services' },
   { label: 'Galeria', to: '/gallery' },
-  { label: 'Restoranti', to: '/testimonials' },
+  { label: 'Restaurant', to: '/testimonials' },
   { label: 'Lokacioni', to: '/location' },
-  { label: 'Kontakti', to: '/contact' },
+  { label: 'Kontakt', to: '/contact' },
 ]
 
 export const socialLinks = {
@@ -168,7 +168,7 @@ export const galleryCollections = [
   },
   {
     id: 'konferenca',
-    title: 'Sallat e Konferencave',
+    title: 'Sallat e Konferecave',
     description: 'Hapësira për evente dhe takime me qasje profesionale dhe estetikë të pastër.',
     images: [
       '/images/scraped/conference/conference-1.jpg',
