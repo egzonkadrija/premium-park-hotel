@@ -131,6 +131,7 @@ export default function HomePage() {
           <img src="/images/scraped/restaurant-bar-3.jpg" alt="Restaurant lounge" />
           <img src="/images/scraped/gallery-5.jpg" alt="Conference room" />
           <img className="span-2" src="/images/scraped/restaurant-slider-4.jpg" alt="Restaurant interior" />
+          <img src="/images/scraped/gallery-2.jpg" alt="Premium Park Hotel interior detail" />
         </div>
         <div className="section-tail">
           <Link to="/gallery" className="btn btn-outline-dark">
