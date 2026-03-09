@@ -49,6 +49,7 @@ export default function HomePage() {
               eyebrow="Rreth Hotelit"
               title="Rreth Premium Park Hotel"
               description="Premium Park Hotel nderthur rehati, materiale te ngrohta dhe nje ritem te qete qendrimi, vetem pak minuta nga qendra e Prizrenit."
+              align="center"
             />
             <div className="signature-actions">
               <Link to="/about" className="btn btn-outline-dark">
@@ -71,6 +72,7 @@ export default function HomePage() {
           title="Lista E Sherbimeve"
           titleNoWrap
           description="Tre kategori te zgjedhura per te treguar rehatine, hapesiren dhe karakterin e qendrimit ne Premium Park."
+          align="center"
         />
         <div className="luxury-card-grid luxury-card-grid-3">
           {featuredRooms.map((room) => (
@@ -102,6 +104,7 @@ export default function HomePage() {
           eyebrow="Restoranti & Eventet"
           title="Restaurant"
           description="Restoranti, bari dhe ambientet funksionale e zgjasin qendrimin ne nje ritem me social, me te qete dhe me te plote."
+          align="center"
         />
         <div className="luxury-card-grid luxury-card-grid-2">
           {featuredExperiences.map((item) => (
