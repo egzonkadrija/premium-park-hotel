@@ -48,7 +48,6 @@ export default function HomePage() {
             <SectionIntro
               title="Rreth Premium Park Hotel"
               description="Premium Park Hotel nderthur rehati, materiale te ngrohta dhe nje ritem te qete qendrimi, vetem pak minuta nga qendra e Prizrenit."
-              align="center"
             />
             <div className="signature-actions">
               <Link to="/about" className="btn btn-outline-dark">
