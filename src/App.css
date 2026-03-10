@@ -986,6 +986,7 @@ img {
 }
 
 .gallery-editorial-grid img.featured {
+  grid-column: 2;
   grid-row: span 2;
 }
 
@@ -1220,6 +1221,10 @@ img {
   .gallery-editorial-grid,
   .mosaic-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-editorial-grid img.featured {
+    grid-column: auto;
   }
 
   .mosaic-grid img:last-child:nth-child(odd):not(.span-2),
