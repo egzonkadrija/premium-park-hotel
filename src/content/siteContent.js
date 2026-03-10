@@ -142,6 +142,7 @@ export const galleryCollections = [
       '/images/scraped/room-2.jpg',
       '/images/scraped/room-3.jpg',
       '/images/scraped/room-6.jpg',
+      '/images/scraped/room-5.jpg',
     ],
   },
   {
@@ -153,6 +154,7 @@ export const galleryCollections = [
       '/images/scraped/restaurant-slider-2.jpg',
       '/images/scraped/restaurant-slider-4.jpg',
       '/images/scraped/restaurant-bar-5.jpg',
+      '/images/scraped/restaurant-bar-2.jpg',
     ],
   },
   {
@@ -164,6 +166,7 @@ export const galleryCollections = [
       '/images/scraped/spa/spa-3.jpg',
       '/images/scraped/spa/spa-7.jpg',
       '/images/scraped/spa/spa-5.jpg',
+      '/images/scraped/spa/spa-9.jpg',
     ],
   },
   {
@@ -175,6 +178,7 @@ export const galleryCollections = [
       '/images/scraped/conference/conference-2.jpg',
       '/images/scraped/conference/conference-3.jpg',
       '/images/scraped/gallery-5.jpg',
+      '/images/scraped/conference/conference-4.jpg',
     ],
   },
 ]

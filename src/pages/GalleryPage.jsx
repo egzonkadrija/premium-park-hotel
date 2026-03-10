@@ -42,7 +42,7 @@ export default function GalleryPage() {
                 key={image}
                 src={image}
                 alt={`${collection.title} ${index + 1}`}
-                className={index === 0 || index === 3 ? 'featured' : ''}
+                className={index === 0 ? 'featured' : ''}
               />
             ))}
           </div>
