@@ -418,6 +418,10 @@ img {
   letter-spacing: -0.03em;
 }
 
+.closing-banner h2 {
+  max-width: 26ch;
+}
+
 .section-intro-center h2 {
   max-width: 16ch;
 }
