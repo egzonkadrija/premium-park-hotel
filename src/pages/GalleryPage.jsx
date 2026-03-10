@@ -36,7 +36,7 @@ export default function GalleryPage() {
       {galleryCollections.map((collection) => (
         <section className="section gallery-collection" id={collection.id} key={collection.id}>
           <SectionIntro eyebrow="Koleksion" title={collection.title} description={collection.description} />
-          <div className="gallery-editorial-grid">
+          <div className={`gallery-editorial-grid${collection.images.length === 5 ? ' has-five' : ''}`}>
             {collection.images.map((image, index) => (
               <img
                 key={image}
